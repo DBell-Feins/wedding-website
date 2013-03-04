@@ -1,0 +1,539 @@
+// Variables
+@linkvisited: #557d0d;
+@primarybg: #5C76A6;
+@serif:"Droid Serif", Georgia, "Times New Roman", serif;
+@sansserif: 'Droid Sans', Arial, Helvetica, sans-serif;
+@primarytext: #333333;
+@lighttext: #DDDDDD;
+
+@font-face {
+    font-family: 'Ampersand';
+    src: url('font/baskvill-webfont.eot');
+    src: url('font/baskvill-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/baskvill-webfont.woff') format('woff'),
+         url('font/baskvill-webfont.ttf') format('truetype'),
+         url('font/baskvill-webfont.svg#webfont') format('svg');
+    unicode-range: U+26;
+}
+
+@font-face {
+    /* Ampersand fallback font */
+    font-family: 'Ampersand2';
+    src: local('Arial');
+    unicode-range: U+270C;
+}
+
+
+// Mixins
+.animdelay {
+    -webkit-animation-delay: 10s;
+    -moz-animation-delay: 10s;
+    -o-animation-delay: 10s;
+    -ms-animation-delay: 10s;
+    animation-delay: 10s;
+}
+
+/* For tablets & smart phones */
+// @media (max-width: 767px)
+.media-max-width-767px {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .container { width: auto; }
+    header {
+        margin-top: -20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-top: 50px;
+        h1 {
+            font-size: 35px;
+            line-height: 53px;
+            text-shadow: none;
+        }
+        .well{
+            margin: 5px 10px;
+        }
+    }
+
+    .navbar .nav, .navbar .nav > li {
+        float: left;
+        display: inline;
+    }
+    .navbar-inner {
+        text-align: left;
+    }
+    .wedding {
+        text-align: center;
+        max-width: 350px;
+        margin: 10px auto;
+    }
+    form button {
+        margin-left:0px;
+    }
+    ul.people {
+        li {
+            margin-bottom: 10px;
+            display: block;
+            float: none;
+            &:nth-child(1):nth-last-child(2),
+            &:nth-child(2):nth-last-child(1),
+            &:nth-child(1):nth-last-child(1) {
+                text-align: left;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* For smartphones */
+// @media (max-width: 480px)
+.media-max-width-480px {
+    header {
+        padding-top: 20px;
+    }
+    .navbar .nav, .navbar .nav > li {
+        float: left;
+        display: inline;
+    }
+    .navbar-inner {
+        text-align: left;
+    }
+    .flex-caption {
+        display: none;
+    }
+    .container { 
+        width: auto; 
+    }
+
+}
+
+/* For smaller displays like laptops */
+// @media (min-width: 768px) and (max-width: 979px)
+.media-min-width-768px-max-width-979px {
+    header {
+        margin-top: -20px;
+    }
+    .navbar .nav, .navbar .nav > li {
+        float: left;
+        display: inline;
+    }
+    .container .nav-collapse .nav > li > a {
+        color: #fff;
+        &:hover {
+            background-color: #1a3971;
+        }
+    }
+    .navbar-fixed-top {
+
+    }
+    .navbar-inner {
+        text-align: left;
+    }
+    .container { width: 724px; }
+}
+
+// Styles
+.headers {
+    font-family: @serif;
+    font-weight: normal;
+    .animdelay;
+}
+body {
+    background: url('../img/grey.png') repeat;
+    //background: #fff url('../img/well.png') repeat;
+    padding-top: 40px;
+    font-family: @sansserif;
+    color: @primarytext;
+    font-size: 13px;
+    line-height: 25px;
+    .animdelay;
+}
+
+h1 {
+    .headers;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+h2 {
+    .headers;
+    font-size: 35px;
+    line-height: 45px;
+}
+
+h3 {
+    .headers;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+h4 {
+    .headers;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h5 {
+    .headers;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h6 {
+    .headers;
+}
+
+p {
+    margin: 5px 0px;
+}
+
+a {
+    &:visited {
+        color: @linkvisited;
+    }
+
+    &:hover {
+        color: darken(@primarybg, 10%);
+    }
+    &:hover, &:active, &:focus {
+        outline: 0;
+    }
+    .section-anchor {
+        margin-bottom: 60px;
+    }
+}
+
+form {
+    margin-top: 15px;
+    input {
+        margin: 10px 0px;
+    }
+    button {
+        margin: 10px 0px;
+        margin-left:15px;
+    }
+}
+
+.border {
+    height: 20px;
+}
+
+.color {
+    color: @primarybg;
+}
+
+:focus { outline: none; }
+
+::-moz-focus-inner { border: 0; }
+
+.well {
+    background: url('../img/grey.png') repeat;
+    border-radius: 15px;
+    border: 1px solid @lighttext;
+    padding: 10px 20px;
+    box-shadow: inset 0px 0px 1px #ccc;
+}
+
+.bor {
+    background: url('../img/bor.png') no-repeat;
+    height: 20px;
+    width: 240px;
+    margin: 0 auto;
+}
+
+.itop {
+    width: 20px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: -32px;
+    border: 1px solid @lighttext;
+    height: 20px;
+    background: #eee;
+    border-radius: 30px;
+    font-size: 13px;
+    line-height: 18px;
+    a {
+        color: #aaa;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/* Image alignment*/
+
+.alignleft, img.alignleft {
+    margin-right: 8px;
+    margin-top: 5px;
+    display: inline;
+    float: left;
+}
+
+.alignright, img.alignright {
+    margin-left: 8px;
+    margin-top: 5px;
+    display: inline;
+    float: right;
+}
+
+.aligncenter, img.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    clear: both;
+}
+
+.button {
+    margin: 10px 0px;
+    a, a:visited {
+        background: @primarybg;
+        color: #fff;
+        width: 100px;
+        padding: 6px 15px;
+        font-size: 14px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px #888888;
+    }
+    a:hover {
+        background: darken(@primarybg, 10%);
+        text-decoration: none;
+    }
+}
+
+/* Navigation */
+
+.navbar-inner {
+    border-radius: 0px;
+    background: @primarybg;
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.navbar {
+    .btn {
+        background: @primarybg;
+        &:hover {
+            background: darken(@primarybg, 10%);
+        }
+    }
+    .caret {
+        border-top-color: #fff;
+        border-bottom-color: #fff;
+    }
+    .nav, .nav > li {
+        float: none;
+        display: inline-block;
+        *display: inline; /* ie7 fix */
+        *zoom: 1; /* hasLayout ie7 trigger */
+        vertical-align: top;
+    }
+    .nav {
+        > li > a {
+            padding: 14px 15px 13px;
+            color: #fff;
+            text-shadow: none;
+            font-size: 14px;
+            &:hover {
+                background: darken(@primarybg, 10%);
+                color: #fff;
+            }
+        }
+        .active > a,
+        .active > a:hover,
+        .active > a:focus {
+            color: #fff;
+            box-shadow: none;
+            background: darken(@primarybg, 10%);
+        }
+    }
+
+}
+
+
+.dropdown-toggle {
+    background: @primarybg;
+}
+
+.nav-collapse a {
+    font-weight: normal;
+    text-shadow: none;
+}
+
+.dropdown-menu {
+    background: @primarybg;
+    a {
+        color: #fff;
+        text-shadow: none;
+        &:hover {
+            filter: none;
+            background: darken(@primarybg, 10%);
+        }
+    }
+}
+
+.section {
+    text-align: center;
+    padding-top: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    h1 {
+        color: @primarytext;
+    }
+    h2 span {
+        color: #777;
+    }
+    h3 {
+        font-size: 18px;
+        line-height: 23px;
+    }
+    .well {
+        color: #666;
+        background: #fff url('../img/well.png') repeat;
+        padding: 13px 15px;
+        box-shadow: inset 0px 0px 2px #111;
+        border: 1px solid darken(@primarybg, 10%);
+        display: inline-block;
+        border-radius: 10px;
+        max-width: 600px;
+        font-size: 13px;
+        line-height: 24px;
+    }
+}
+
+/* Head */
+
+.head {
+    text-align: center;
+    margin-bottom: 10px;
+    h2 {
+        margin: 5px 0;
+    }
+}
+
+/* Slides */
+
+.first-container { margin-top: 48px; }
+.container-fluid { width: 940px; }
+
+/* About */
+.container-wave-style {
+    padding: 10px 20px;
+    background: #fafafa url('../img/wave.png') repeat;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.aboutperson {
+    .container-wave-style;
+    img {
+        float: left;
+        margin-top: 8px;
+        margin-right: 8px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0px 0px 3px #ccc;
+        background: #fff;
+    }
+    h3 {
+        font-weight: 700;
+    }
+    .ameta {
+    color: #888;
+    font-weight: normal;
+    font-family: @sansserif;
+    font-size: 13px;
+    line-height: 20px;
+    }
+}
+.about {
+    .aboutperson;
+    border: 1px solid #eee;
+    h3 {
+        text-align: left;
+    }
+}
+.wedding-party-placeholder {
+    .aboutperson;
+}
+.wedding-party {
+    //display: none;
+    .aboutperson;
+}
+
+.slides li {
+    .person {
+        text-align: left;
+        img {
+            max-width: 200px;
+            padding: 10px 10px 50px 10px;
+       }
+        div {
+            display: inline;
+        }
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+ul.people {
+    list-style-type: none;
+    margin-bottom: 0;
+    li {
+        img {
+            
+        }
+        &:nth-child(1):nth-last-child(1) {
+            width: 100%;
+        }
+
+        &:nth-child(1):nth-last-child(2),
+        &:nth-child(2):nth-last-child(1) {
+            width: 44%;
+        }
+        text-align: center;
+        float: left;
+        padding: 0 10px;
+        img {
+            padding-right: 10px;
+        }
+    }
+}
+
+
+/* Wedding */
+
+.wedding{
+    .container-wave-style;
+    border: 1px solid #eee;
+    h4 i {
+        margin-top: 4px;
+        margin-right: 2px;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+// MEDIA QUERIES
+
+/* For tablets & smart phones */
+@media (max-width: 767px) {
+    .media-max-width-767px;
+}
+
+/* For smartphones */
+@media (max-width: 480px) {
+    .media-max-width-480px;
+}
+
+/* For smaller displays like laptops */
+@media (min-width: 768px) and (max-width: 979px) {
+    .media-min-width-768px-max-width-979px;
+}
