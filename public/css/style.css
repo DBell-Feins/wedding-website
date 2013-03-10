@@ -1,14 +1,26 @@
+/* Ampersand fallback font */
 /* For tablets & smart phones */
+/* For smartphones */
+/* For smaller displays like laptops */
+/* Image alignment*/
+/* Navigation */
+/* Head */
+/* Slides */
+/* About */
+/* Wedding */
+/* For tablets & smart phones */
+/* For smartphones */
+/* For smaller displays like laptops */
 @font-face {
   font-family: 'Ampersand';
   src: url('font/baskvill-webfont.eot');
   src: url('font/baskvill-webfont.eot?#iefix') format('embedded-opentype'), url('font/baskvill-webfont.woff') format('woff'), url('font/baskvill-webfont.ttf') format('truetype'), url('font/baskvill-webfont.svg#webfont') format('svg');
-  unicode-range: U+26;
+  unicode-range: U26;
 }
 @font-face {
   font-family: 'Ampersand2';
   src: local('Arial');
-  unicode-range: U+270C;/* Ampersand fallback font */
+  unicode-range: U270C;
 }
 .animdelay {
   -webkit-animation-delay: 10s;
@@ -17,7 +29,15 @@
   -ms-animation-delay: 10s;
   animation-delay: 10s;
 }
-/* For tablets & smart phones */
+.headers {
+  font-family: "Droid Serif", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  -webkit-animation-delay: 10s;
+  -moz-animation-delay: 10s;
+  -o-animation-delay: 10s;
+  -ms-animation-delay: 10s;
+  animation-delay: 10s;
+}
 .media-max-width-767px body {
   padding-left: 20px;
   padding-right: 20px;
@@ -66,7 +86,6 @@
   text-align: left;
   width: 100%;
 }
-/* For smartphones */
 .media-max-width-480px header {
   padding-top: 20px;
 }
@@ -84,7 +103,6 @@
 .media-max-width-480px .container {
   width: auto;
 }
-/* For smaller displays like laptops */
 .media-min-width-768px-max-width-979px header {
   margin-top: -20px;
 }
@@ -104,15 +122,6 @@
 }
 .media-min-width-768px-max-width-979px .container {
   width: 724px;
-}
-.headers {
-  font-family: "Droid Serif", Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  -webkit-animation-delay: 10s;
-  -moz-animation-delay: 10s;
-  -o-animation-delay: 10s;
-  -ms-animation-delay: 10s;
-  animation-delay: 10s;
 }
 body {
   background: url('../img/grey.png') repeat;
@@ -222,7 +231,7 @@ form button {
   height: 20px;
 }
 .color {
-  color: #5c76a6;
+  color: #5C76A6;
 }
 :focus {
   outline: none;
@@ -231,9 +240,9 @@ form button {
   border: 0;
 }
 .well {
-  background: url('../img/grey.png') repeat;
+  background: #fff;
   border-radius: 15px;
-  border: 1px solid #dddddd;
+  border: 1px solid #DDDDDD;
   padding: 10px 20px;
   box-shadow: inset 0px 0px 1px #ccc;
 }
@@ -249,7 +258,7 @@ form button {
   text-align: center;
   position: relative;
   top: -32px;
-  border: 1px solid #dddddd;
+  border: 1px solid #DDDDDD;
   height: 20px;
   background: #eee;
   border-radius: 30px;
@@ -262,7 +271,6 @@ form button {
 .itop a:hover {
   text-decoration: none;
 }
-/* Image alignment*/
 .alignleft,
 img.alignleft {
   margin-right: 8px;
@@ -289,7 +297,7 @@ img.aligncenter {
 }
 .button a,
 .button a:visited {
-  background: #5c76a6;
+  background: #5C76A6;
   color: #fff;
   width: 100px;
   padding: 6px 15px;
@@ -301,10 +309,9 @@ img.aligncenter {
   background: #495e86;
   text-decoration: none;
 }
-/* Navigation */
 .navbar-inner {
   border-radius: 0px;
-  background: #5c76a6;
+  background: #5C76A6;
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
@@ -313,7 +320,7 @@ img.aligncenter {
   text-align: center;
 }
 .navbar .btn {
-  background: #5c76a6;
+  background: #5C76A6;
 }
 .navbar .btn:hover {
   background: #495e86;
@@ -326,12 +333,10 @@ img.aligncenter {
 .navbar .nav > li {
   float: none;
   display: inline-block;
-  *display: inline;
   /* ie7 fix */
-
-  *zoom: 1;
+  *display: inline;
   /* hasLayout ie7 trigger */
-
+  *zoom: 1;
   vertical-align: top;
 }
 .navbar .nav > li > a {
@@ -352,14 +357,14 @@ img.aligncenter {
   background: #495e86;
 }
 .dropdown-toggle {
-  background: #5c76a6;
+  background: #5C76A6;
 }
 .nav-collapse a {
   font-weight: normal;
   text-shadow: none;
 }
 .dropdown-menu {
-  background: #5c76a6;
+  background: #5C76A6;
 }
 .dropdown-menu a {
   color: #fff;
@@ -369,35 +374,34 @@ img.aligncenter {
   filter: none;
   background: #495e86;
 }
-.section {
+section {
   text-align: center;
   padding-top: 20px;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-.section h1 {
+section h1 {
   color: #333333;
 }
-.section h2 span {
+section h2 span {
   color: #777;
 }
-.section h3 {
+section h3 {
   font-size: 18px;
   line-height: 23px;
 }
-.section .well {
+section .well {
   color: #666;
-  background: #ffffff url('../img/well.png') repeat;
-  padding: 13px 15px;
+  background: #fff;
+  padding: 20px 40px;
   box-shadow: inset 0px 0px 2px #111;
   border: 1px solid #495e86;
   display: inline-block;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 700px;
   font-size: 13px;
   line-height: 24px;
 }
-/* Head */
 .head {
   text-align: center;
   margin-bottom: 10px;
@@ -405,21 +409,13 @@ img.aligncenter {
 .head h2 {
   margin: 5px 0;
 }
-/* Slides */
 .first-container {
   margin-top: 48px;
 }
 .container-fluid {
   width: 940px;
 }
-/* About */
 .container-wave-style {
-  padding: 10px 20px;
-  background: #fafafa url('../img/wave.png') repeat;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.aboutperson {
   padding: 10px 20px;
   background: #fafafa url('../img/wave.png') repeat;
   border-radius: 10px;
@@ -440,7 +436,7 @@ img.aligncenter {
   color: #888;
   font-weight: normal;
   font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 20px;
 }
 .about {
@@ -449,6 +445,7 @@ img.aligncenter {
   border-radius: 10px;
   margin-bottom: 10px;
   border: 1px solid #eee;
+  box-shadow: inset 0px 0px 2px #111;
 }
 .about img {
   float: left;
@@ -465,41 +462,15 @@ img.aligncenter {
   color: #888;
   font-weight: normal;
   font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 20px;
 }
 .about h3 {
   text-align: left;
 }
-.wedding-party-placeholder {
-  padding: 10px 20px;
-  background: #fafafa url('../img/wave.png') repeat;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.wedding-party-placeholder img {
-  float: left;
-  margin-top: 8px;
-  margin-right: 8px;
-  border: 1px solid #ccc;
-  box-shadow: inset 0px 0px 3px #ccc;
-  background: #fff;
-}
-.wedding-party-placeholder h3 {
-  font-weight: 700;
-}
-.wedding-party-placeholder .ameta {
-  color: #888;
-  font-weight: normal;
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-}
 .wedding-party {
-  padding: 10px 20px;
-  background: #fafafa url('../img/wave.png') repeat;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  text-align: left;
+  padding: 10px 0;
 }
 .wedding-party img {
   float: left;
@@ -516,20 +487,46 @@ img.aligncenter {
   color: #888;
   font-weight: normal;
   font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 20px;
 }
-.slides li .person {
-  text-align: left;
-  max-width: 60%;
+.flex-direction-nav a {
+  background: url(../img/bg_direction_nav.png) no-repeat 0 0;
+}
+.flex-direction-nav a.flex-prev {
+  margin-left: 5px;
+}
+.flex-direction-nav a.flex-next {
+  margin-right: 5px;
+}
+.flex-control-nav {
+  position: static;
+}
+.flexslider {
   margin-left: auto;
   margin-right: auto;
 }
-.slides li .person img {
-  max-width: 200px;
-  padding: 10px 10px 50px 10px;
+.flexslider .slides {
+  padding-bottom: 5px;
 }
-.slides li .person div {
+.flexslider .slides li .person {
+  text-align: left;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.flexslider .slides li .person .span8 {
+  margin-left: 10px;
+}
+.flexslider .slides li .person h3 {
+  margin-top: 0;
+}
+.flexslider .slides li .person img {
+  max-width: 200px;
+  padding: 0 10px 10px 10px;
+  float: left;
+}
+.flexslider .slides li .person div {
   display: inline;
 }
 ul.people {
@@ -551,7 +548,6 @@ ul.people li:nth-child(2):nth-last-child(1) {
 ul.people li img {
   padding-right: 10px;
 }
-/* Wedding */
 .wedding {
   padding: 10px 20px;
   background: #fafafa url('../img/wave.png') repeat;
@@ -566,7 +562,6 @@ ul.people li img {
 .wedding table {
   width: 100%;
 }
-/* For tablets & smart phones */
 @media (max-width: 767px) {
   body {
     padding-left: 20px;
@@ -617,7 +612,6 @@ ul.people li img {
     width: 100%;
   }
 }
-/* For smartphones */
 @media (max-width: 480px) {
   header {
     padding-top: 20px;
@@ -637,7 +631,6 @@ ul.people li img {
     width: auto;
   }
 }
-/* For smaller displays like laptops */
 @media (min-width: 768px) and (max-width: 979px) {
   header {
     margin-top: -20px;
