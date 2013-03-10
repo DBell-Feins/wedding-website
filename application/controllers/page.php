@@ -51,7 +51,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_index()
     {
-        return View::make('page.index', array( 'nav' => $this->build_menu($this->get_caller()) ));
+        return View::make('page.index', array( 'nav' => Menu::build_menu($this->pages) ));
     }
     
     /**
@@ -62,7 +62,7 @@ class Page_Controller extends Base_Controller {
     {
         $dave = Person::get_person('dave');
         $liz = Person::get_person('liz');
-        return View::make('page.about', array( 'nav' => $this->build_menu($this->get_caller()), 'dave' => $dave, 'liz' => $liz ));
+        return View::make('page.about', array( 'nav' => Menu::build_menu($this->pages), 'dave' => $dave, 'liz' => $liz ));
     }
     
     /**
@@ -85,7 +85,7 @@ class Page_Controller extends Base_Controller {
         {
             return Response::error('404');
         } else {
-            return View::make('page.photos', array( 'nav' => $this->build_menu($this->get_caller()), 'photos' => $photos, 'num' => $num ));
+            return View::make('page.photos', array( 'nav' => Menu::build_menu($this->pages), 'photos' => $photos, 'num' => $num ));
         }
     }
 
@@ -102,7 +102,7 @@ class Page_Controller extends Base_Controller {
             
         } else {
             $people = Person::get_people(array('autumn', 'emily', 'ashley', 'jon', 'rob', 'curtis'));
-            return View::make('page.wedding', array('nav' => $this->build_menu($this->get_caller()), 'people' => $people ));
+            return View::make('page.wedding', array('nav' => Menu::build_menu($this->pages), 'people' => $people ));
         }
     }
     
@@ -112,7 +112,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_registry()
     {
-        return View::make('page.registry', array( 'nav' => $this->build_menu($this->get_caller()) ));
+        return View::make('page.registry', array( 'nav' => Menu::build_menu($this->pages) ));
     }
     
     /**
@@ -121,7 +121,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_location()
     {
-        return View::make('page.location', array( 'nav' => $this->build_menu($this->get_caller()) ));
+        return View::make('page.location', array( 'nav' => Menu::build_menu($this->pages) ));
     }
     
     /**
@@ -130,42 +130,6 @@ class Page_Controller extends Base_Controller {
      */
     public function get_rsvp()
     {
-        return View::make('page.rsvp', array( 'nav' => $this->build_menu($this->get_caller()) ));
+        return View::make('page.rsvp', array( 'nav' => Menu::build_menu($this->pages) ));
     }
-    
-     /**
-     * Get the calling function's name
-     * @return string
-     */
-    private function get_caller()
-    {
-        $backtrace = debug_backtrace();
-        return $backtrace[1]['function'];
-    }
-    
-    /**
-     * Builds the navbar string to pass into each view
-     * @param string $caller
-     * @return string
-     */
-    private function build_menu($caller)
-    {
-        $pages = $this->pages;
-        foreach($pages as $k=>$v)
-        {
-            if($k === str_replace ('get_', '', $caller))
-            {
-                $pages[$k]['active'] = true;
-            } else {
-                $pages[$k]['active'] = false;
-            }         
-        }
-        $nav_arr = array();
-        foreach($pages as $k=>$v)
-        {
-            $nav_arr[] = array($v['name'], $v['slug'], $v['active'], false, null, $v['icon']);
-        }
-        return Navigation::menu(Navigation::links($nav_arr));
-    }
-
 }
