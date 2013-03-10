@@ -1,24 +1,18 @@
 @layout('page.master')
 
 @section('content')
-{{ Log::info('<pre>' . print_r($person, true) . '</pre>'); }}
-<div class="container section section-wedding">
-    <div class="row">
+<section class="container">
+    @render('partials.header', array('title' => $title))
+    <div class="row-fluid">
         <div class="span12">
-            <div class="head">
-                <div class="bor"></div>
-                <h2>The Wedding Party</h2>
-                <div class="bor"></div>
-            </div>
-        </div>
-        <div class="span8 offset2">
-            <div class="wedding">
-                <div id="{{ $person['slug'] }}" class="wedding-party">
-                    <h3>{{ $person['name'] }} <span class="ameta">- {{ $person['role'] }}</span></h3>
-                    <p>{{ HTML::image($person['image_url'], ''); }}{{ $person['description'] }}</p>
-                </div>
+            <div class="well center">
+                    <div id="{{ $person['slug'] }}" class="wedding-party row-fluid">
+                        <div class="span4">{{ HTML::image($person['image_url'], ''); }}</div>
+                        <div class="span8"><h3>{{ $person['role'] }}</h3>
+                        <p>{{ $person['description'] }}</p></div>
+                    </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

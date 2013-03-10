@@ -1,28 +1,24 @@
 @layout('page.master')
 
 @section('content')
- <div class="container section section-photos">
-    <div class="row">
-        <div class="span12">
-            <div class="head">
-                <div class="bor"></div>
-                <h2>Photos</h2>
-                <div class="bor"></div>
-            </div>
-        </div>
-        <div class="span12">
-            <div class="container">
+    <section class="container">
+        @render('partials.header', array('title' => $title))
+        <div class="row-fluid">
+           <div class="span12">
                 @if($num == null)
-                    <div id="slides">
-                        @foreach($photos as $photo)
-                            {{ HTML::image($photo); }}
-                        @endforeach
+                    <div class="flexslider">
+                        <ul class="slides">
+                            @foreach($photos as $photo)
+                            <li>
+                                {{ HTML::image($photo); }}
+                            </li>
+                            @endforeach
+                        </ul>
                     </div>
                 @else
                     {{ HTML::image($photos); }}
                 @endif
-            </div>
-        </div>
-    </div>
-</div>
+           </div>
+       </div>
+   </section>
 @endsection

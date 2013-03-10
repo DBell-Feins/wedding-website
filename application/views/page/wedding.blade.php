@@ -1,36 +1,23 @@
 @layout('page.master')
 
 @section('content')
-<div class="container section section-wedding">
-    <div class="row">
-        <div class="span12">
-            <div class="head">
-                <div class="bor"></div>
-                <h2>The Wedding Party</h2>
-                <div class="bor"></div>
+<section class="container">
+    @render('partials.header', array('title' => $title))
+    <div class="row-fluid">
+            <div class="span12">
+                <div class="well center">
+                    <p>Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus  rutrum aliquet.</p>
+                </div>
             </div>
         </div>
+    <div class="row-fluid">
         <div class="span12">
-            <div class="wedding">
-                <!-- Wedding details -->
-                <h3><i class="icon-glass"></i> Wedding Party</h3>
-                <p>Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus  rutrum aliquet.</p>
-                <div class="flexslider">
-                    <ul class="slides">
-                    @foreach($people as $person)
-                        <li>
-                            <div class="person">
-                                <img src="{{ $person->image_url }}" alt="">
-                                <div>
-                                    <h4>{{ $person->name }}</h4>
-                                    <h5>{{ $person->role }}</h5>
-                                    <p>{{ $person->description }}</p>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                    </ul>
-                </div>
+            <div class="flexslider well wedding">
+                <ul class="slides">
+                @foreach($people as $person)
+                    @render('partials.wedding-party-li', array('person' => $person))
+                @endforeach
+                </ul>
             </div>
         </div>
     </div>

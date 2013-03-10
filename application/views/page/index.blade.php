@@ -1,11 +1,9 @@
 @layout('page.master')
 
 @section('content')
-    <div class="container section section-home">
-    <div class="row">
-        <div class="span12">
-            <div class="hero">
-                <!-- Getting married -->
+    <section class="container">
+        <div class="row-fluid">
+            <div class="span12">
                 <h1>We're Getting Married!</h1>
                 <div class="well">
                     <!-- date -->
@@ -18,7 +16,6 @@
                     <!-- Small para -->
                     <p>Suspendisse potenti. Morbi ac felis nec mauris imperdiet fermentum. Aenean sodales augue ac lacus hendrerit sed rhoncus erat hendrerit. Vivamus vel ultricies elit. </p>
                 </div>
-                <!-- Button. Note down the class "button" -->
                 <div class="button">
                     {{ HTML::link_to_action('wedding', 'Wedding', array(), array('class'=>'anchorLink')); }}
                     &nbsp;
@@ -26,6 +23,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

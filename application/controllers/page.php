@@ -51,7 +51,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_index()
     {
-        return View::make('page.index', array( 'nav' => Menu::build_menu($this->pages) ));
+        return View::make('page.index', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'We\'re Getting Married!' ));
     }
     
     /**
@@ -62,7 +62,7 @@ class Page_Controller extends Base_Controller {
     {
         $dave = Person::get_person('dave');
         $liz = Person::get_person('liz');
-        return View::make('page.about', array( 'nav' => Menu::build_menu($this->pages), 'dave' => $dave, 'liz' => $liz ));
+        return View::make('page.about', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Our Story', 'dave' => $dave, 'liz' => $liz ));
     }
     
     /**
@@ -78,7 +78,7 @@ class Page_Controller extends Base_Controller {
         } 
         else
         {
-            return View::make('page.photos', array( 'nav' => Menu::build_menu($this->pages), 'photos' => $photos, 'num' => $num ));
+            return View::make('page.photos', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Photos', 'photos' => $photos, 'num' => $num ));
         }
     }
 
@@ -100,12 +100,13 @@ class Page_Controller extends Base_Controller {
             {
                 return View::make('page.wedding-person', array(
                     'nav' => Menu::build_menu($this->pages), 
-                    'person' => Person::get_person($person)->to_array())
-                );
+                    'person' => $ret_person->to_array(),
+                    'title' => $ret_person->name
+                ));
             }
         } else {
             $people = Person::get_people(array('autumn', 'emily', 'ashley', 'jon', 'rob', 'curtis'));
-            return View::make('page.wedding', array('nav' => Menu::build_menu($this->pages), 'people' => $people ));
+            return View::make('page.wedding', array('nav' => Menu::build_menu($this->pages), 'title' => 'The Wedding Party', 'people' => $people ));
         }
     }
     
@@ -115,7 +116,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_registry()
     {
-        return View::make('page.registry', array( 'nav' => Menu::build_menu($this->pages) ));
+        return View::make('page.registry', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Registry' ));
     }
     
     /**
@@ -124,7 +125,7 @@ class Page_Controller extends Base_Controller {
      */
     public function get_location()
     {
-        return View::make('page.location', array( 'nav' => Menu::build_menu($this->pages) ));
+        return View::make('page.location', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Location' ));
     }
     
     /**
@@ -133,6 +134,6 @@ class Page_Controller extends Base_Controller {
      */
     public function get_rsvp()
     {
-        return View::make('page.rsvp', array( 'nav' => Menu::build_menu($this->pages) ));
+        return View::make('page.rsvp', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'RSVP' ));
     }
 }
