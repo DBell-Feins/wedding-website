@@ -11,11 +11,11 @@
                 <div class="bor"></div>
             </div>
         </div>
-        <div class="span6">
+        <div class="span8 offset2">
             <div class="wedding">
-                <div id="{{ $person->slug }}" class="wedding-party">
-                    <h3>{{ $person->name }} <span class="ameta">- {{ $person->role }}</span></h3>
-                    <p>{{ HTML::image($person->image_url, ''); }}{{ $person->description }}</p>
+                <div id="{{ $person['slug'] }}" class="wedding-party">
+                    <h3>{{ $person['name'] }} <span class="ameta">- {{ $person['role'] }}</span></h3>
+                    <p>{{ HTML::image($person['image_url'], ''); }}{{ $person['description'] }}</p>
                 </div>
             </div>
         </div>

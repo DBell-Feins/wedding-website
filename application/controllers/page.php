@@ -91,8 +91,18 @@ class Page_Controller extends Base_Controller {
     {
         if($person !== null)
         {
-            return json_encode(Person::get_person($person)->to_array());
-            
+            $ret_person = Person::get_person($person);
+            if($ret_person === null)
+            {
+                return Response::error('404');
+            }
+            else
+            {
+                return View::make('page.wedding-person', array(
+                    'nav' => Menu::build_menu($this->pages), 
+                    'person' => Person::get_person($person)->to_array())
+                );
+            }
         } else {
             $people = Person::get_people(array('autumn', 'emily', 'ashley', 'jon', 'rob', 'curtis'));
             return View::make('page.wedding', array('nav' => Menu::build_menu($this->pages), 'people' => $people ));
