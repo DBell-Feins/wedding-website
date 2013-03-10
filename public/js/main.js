@@ -22,7 +22,8 @@ $(function() {
     });
     
      $('.flexslider').flexslider({
-         slideshow: false
+         slideshow: true,
+         directionNav: true
      });
 });
 

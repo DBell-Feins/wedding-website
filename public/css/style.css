@@ -515,15 +515,12 @@ section .well {
   margin-left: auto;
   margin-right: auto;
 }
-.flexslider .slides li .person .span8 {
-  margin-left: 10px;
-}
 .flexslider .slides li .person h3 {
   margin-top: 0;
 }
 .flexslider .slides li .person img {
   max-width: 200px;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 10px 0;
   float: left;
 }
 .flexslider .slides li .person div {

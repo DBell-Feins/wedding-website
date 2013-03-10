@@ -6,7 +6,8 @@
     <div class="row-fluid">
             <div class="span12">
                 <div class="well center">
-                    <p>Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus  rutrum aliquet.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a massa dolor. Ut imperdiet ligula id orci feugiat ornare. Fusce vehicula sodales turpis, at vestibulum tellus sodales id. Praesent hendrerit adipiscing vestibulum. Nulla vitae aliquam velit. Integer hendrerit dignissim purus ut condimentum. Nulla iaculis ornare nibh, fringilla vestibulum mauris iaculis vel. Mauris risus ante, aliquet quis condimentum at, ultricies quis mi. Nam tristique arcu eget magna hendrerit tempus. Suspendisse potenti. Cras sit amet vestibulum nisl.</p>
+                    
                 </div>
             </div>
         </div>
