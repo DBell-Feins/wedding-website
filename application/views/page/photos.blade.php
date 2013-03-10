@@ -19,7 +19,7 @@
                         @endforeach
                     </div>
                 @else
-                    {{ HTML::image($photos[$num-1]); }}
+                    {{ HTML::image($photos); }}
                 @endif
             </div>
         </div>

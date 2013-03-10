@@ -71,20 +71,13 @@ class Page_Controller extends Base_Controller {
      */
     public function get_photos($num = null)
     {
-        $path = path('public').'img/photos';
-		$files = scandir($path);
-		$photos = array();
-		foreach ($files as $file)
-        {
-			if(File::is(array('jpeg', 'jpg', 'png', 'gif'), $path . DS . $file))
-			{
-                $photos[] = 'img/photos/' . $file;				
-			}
-		}
-        if($num > count($photos)) 
+        $photos = Photos::get_photos($num);
+        if(count($photos) <= 0)
         {
             return Response::error('404');
-        } else {
+        } 
+        else
+        {
             return View::make('page.photos', array( 'nav' => Menu::build_menu($this->pages), 'photos' => $photos, 'num' => $num ));
         }
     }
