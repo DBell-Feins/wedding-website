@@ -429,7 +429,8 @@ section.location .about .modal {
 section.location .about .modal-body {
   max-height: inherit;
 }
-section.location .about #hotel {
+section.location .about #hotel,
+section.location .about #venue {
   cursor: pointer;
 }
 .leaflet-control-layers-toggle {

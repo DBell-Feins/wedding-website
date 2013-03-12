@@ -15,7 +15,7 @@ $(function() {
      if(typeof L !== 'undefined') {
         var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg';
         var subDomains = ['otile1','otile2','otile3','otile4'];
-        var cloudmadeAttrib = 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+        var cloudmadeAttrib = 'Data, imagery and map information provided by <a href="http://open.mapquest.com" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
         var tileLayerObj = {
             maxZoom: 18, 
             attribution: cloudmadeAttrib, 
@@ -33,8 +33,8 @@ $(function() {
         var hotelMap = new L.Map('map-hotel-modal', {center: hotel, zoom: 13, layers: [hotelLayer]});
         var venueMap = new L.Map('map-venue-modal', {center: venue, zoom: 13, layers: [venueLayer]});
 
-        L.marker(hotel).addTo(hotelMap);
-        L.marker(venue).addTo(venueMap);
+        var hotelMarker = L.marker(hotel).addTo(hotelMap);
+        var venueMarker = L.marker(venue).addTo(venueMap);
 
              // Leaflet interactions
         $('.location #hotel').click(function() {
@@ -45,5 +45,13 @@ $(function() {
                 hotelMap.invalidateSize(true);
             });
         });
+        $('.location #venue').click(function() {
+            $('#map-venue-modal').height($(window).height() * 0.7);
+            $('#map-venue-modal').width($(window).width() * 0.8);
+            $('#map-venue-modal').css('padding', '15px');
+            $('#venueModal').modal().on('shown', function() {
+                venueMap.invalidateSize(true);
+            });
+        })
      }
 });
