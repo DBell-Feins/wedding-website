@@ -26,7 +26,7 @@
                 'slug' => 'autumn',
                 'role' => 'Maid of Honor',
                 'description' => 'Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet. Quisque eu consectetur erat. Proin rutrum, erat eget posuere semper, <em>arcu mauris posuere tortor</em>, in commodo enim magna id massa. Suspendisse potenti. Aliquam erat volutpat. Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at <a href="#">magna  cursus</a> ac ultrices magna.',
-                'image_url' => 'http://placehold.it/200x200'
+                'image_url' => '/img/wedding-party/autumn.png'
             ));
             Person::create(array(
                 'name' => 'Emily Valenza',
