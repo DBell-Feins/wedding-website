@@ -125,6 +125,11 @@ class Page_Controller extends Base_Controller {
      */
     public function get_location()
     {
+        // Include leaflet resources
+        Asset::container('header.ie7')->add('leaflet-ie7', 'css/vendor/leaflet.ie.css');
+        Asset::container('header')->add('leaflet-css', 'css/vendor/leaflet.css');
+        Asset::container('footer')->add('leaflet', 'js/vendor/leaflet.js');
+        
         return View::make('page.location', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Location' ));
     }
     
