@@ -402,6 +402,39 @@ section .well {
   font-size: 13px;
   line-height: 24px;
 }
+section.location .about .vcard {
+  text-align: left;
+}
+section.location .about img {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+section.location .about #map-hotel,
+section.location .about #map-venue {
+  height: 200px;
+}
+section.location .about .modal {
+  max-height: inherit;
+  width: inherit;
+  margin-left: 0;
+  left: 4%;
+}
+section.location .about .modal-body {
+  max-height: inherit;
+}
+section.location .about #hotel {
+  cursor: pointer;
+}
+.leaflet-control-layers-toggle {
+  background-image: url(../img/vendor/layers.png);
+}
 .head {
   text-align: center;
   margin-bottom: 10px;

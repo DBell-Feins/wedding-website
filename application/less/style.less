@@ -409,6 +409,43 @@ section {
         font-size: 13px;
         line-height: 24px;
     }
+    &.location .about {
+        .vcard {
+            text-align: left;
+        }
+        img {
+            float: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        #map-hotel, #map-venue {
+            height: 200px;
+        }
+
+        .modal {
+            max-height: inherit;
+            width: inherit;
+            margin-left: 0;
+            left: 4%;
+           
+        }
+        .modal-body {
+            max-height: inherit;
+        }
+        #hotel {
+            cursor: pointer;
+        }
+    }
+}
+
+.leaflet-control-layers-toggle {
+	background-image: url(../img/vendor/layers.png);
 }
 
 /* Head */
