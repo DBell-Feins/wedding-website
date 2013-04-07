@@ -61,7 +61,7 @@ class Page_Controller extends Base_Controller {
     {
         $dave = Person::get_person('dave');
         $liz = Person::get_person('liz');
-        return View::make('page.about', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Our Story', 'dave' => $dave, 'liz' => $liz ));
+        return View::make('page.about', array( 'nav' => Menu::build_menu($this->pages), 'title' => 'Our Story', 'people' => array('dave' => $dave, 'liz' => $liz ) ));
     }
 
     /**
