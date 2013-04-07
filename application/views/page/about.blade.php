@@ -15,14 +15,16 @@
                 <div class="about">
                     <!-- Groom details with photo -->
                     <h3>{{ $dave->name }} <span class="ameta">- {{ $dave->role }}</span></h3>
-                    <p>{{ HTML::image($dave->image_url, ''); }}{{ $dave->description }}</p>
+                    <p>{{ HTML::image($dave->image_url, ''); }}</p>
+                    {{ $dave->description }}
                 </div>
             </div>
             <div class="span6">
                 <div class="about">
                     <!-- bride details with photo -->
                     <h3>{{ $liz->name }} <span class="ameta">- {{ $liz->role }}</span></h3>
-                    <p>{{ HTML::image($liz->image_url, ''); }}{{ $liz->description }}</p>
+                    <p>{{ HTML::image($liz->image_url, ''); }}</p>
+                    {{ $liz->description }}
                 </div>
             </div>
         </div>

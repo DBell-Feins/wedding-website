@@ -10,8 +10,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
 
         {{ Asset::container('header')->styles() }}
         <!--[if IE 7]>
@@ -20,10 +20,8 @@
         {{ Asset::container('header')->scripts() }}
     </head>
     <body>
-        @include('page.menu')
-
-         @yield('content')
-
+        @include('partials.menu')
+        @yield('content')
         <!-- JS -->
         <img id="hzDownscaled" style="position: absolute; top: -10000px;">
 
@@ -31,7 +29,7 @@
         <script>window.jQuery || document.write("{{ URL::base() . '/js/vendor/jquery-1.9.0.min.js'; }}");</script>
 
         {{ Asset::container('footer')->scripts() }}
- 
+
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
