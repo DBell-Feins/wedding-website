@@ -528,6 +528,9 @@ ul.people li img {
   form button {
     margin-left: 0px;
   }
+  div.about blockquote {
+    border: 0;
+  }
 }
 @media (max-width: 480px) {
   header {
@@ -546,6 +549,9 @@ ul.people li img {
   }
   .container {
     width: auto;
+  }
+  div.about blockquote {
+    border: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -571,5 +577,8 @@ ul.people li img {
   }
   .container {
     width: 724px;
+  }
+  div.about blockquote {
+    border: 0;
   }
 }
