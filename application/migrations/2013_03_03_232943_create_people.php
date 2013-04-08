@@ -16,11 +16,12 @@ class Create_People {
             $table->string('slug');
             $table->string('role')->nullable();
             $table->text('description')->nullable();
+            $table->text('quote')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();
         });
         Command::run(array('seed'));
-        
+
         /*Schema::create('rsvp', function($table) {
             $table->increments('id')->unique();
             $table->string('name');
