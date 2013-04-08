@@ -6,8 +6,8 @@
     <div class="row-fluid">
             <div class="span12">
                 <div class="well center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a massa dolor. Ut imperdiet ligula id orci feugiat ornare. Fusce vehicula sodales turpis, at vestibulum tellus sodales id. Praesent hendrerit adipiscing vestibulum. Nulla vitae aliquam velit. Integer hendrerit dignissim purus ut condimentum. Nulla iaculis ornare nibh, fringilla vestibulum mauris iaculis vel. Mauris risus ante, aliquet quis condimentum at, ultricies quis mi. Nam tristique arcu eget magna hendrerit tempus. Suspendisse potenti. Cras sit amet vestibulum nisl.</p>
-                    
+                    <p>For our wedding we've assembled a crack team of our closest friends and family to accompany us and, if necessary, support us as seconds and alternates should we need to protect our honor in a duel.</p>
+
                 </div>
             </div>
         </div>

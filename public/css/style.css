@@ -22,107 +22,6 @@
   src: local('Arial');
   unicode-range: U270C;
 }
-.animdelay {
-  -webkit-animation-delay: 10s;
-  -moz-animation-delay: 10s;
-  -o-animation-delay: 10s;
-  -ms-animation-delay: 10s;
-  animation-delay: 10s;
-}
-.headers {
-  font-family: "Droid Serif", Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  -webkit-animation-delay: 10s;
-  -moz-animation-delay: 10s;
-  -o-animation-delay: 10s;
-  -ms-animation-delay: 10s;
-  animation-delay: 10s;
-}
-.media-max-width-767px body {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.media-max-width-767px .container {
-  width: auto;
-}
-.media-max-width-767px header {
-  margin-top: -20px;
-  margin-left: -20px;
-  margin-right: -20px;
-  padding-top: 50px;
-}
-.media-max-width-767px header h1 {
-  font-size: 35px;
-  line-height: 53px;
-  text-shadow: none;
-}
-.media-max-width-767px header .well {
-  margin: 5px 10px;
-}
-.media-max-width-767px .navbar .nav,
-.media-max-width-767px .navbar .nav > li {
-  float: left;
-  display: inline;
-}
-.media-max-width-767px .navbar-inner {
-  text-align: left;
-}
-.media-max-width-767px .wedding {
-  text-align: center;
-  max-width: 350px;
-  margin: 10px auto;
-}
-.media-max-width-767px form button {
-  margin-left: 0px;
-}
-.media-max-width-767px ul.people li {
-  margin-bottom: 10px;
-  display: block;
-  float: none;
-}
-.media-max-width-767px ul.people li:nth-child(1):nth-last-child(2),
-.media-max-width-767px ul.people li:nth-child(2):nth-last-child(1),
-.media-max-width-767px ul.people li:nth-child(1):nth-last-child(1) {
-  text-align: left;
-  width: 100%;
-}
-.media-max-width-480px header {
-  padding-top: 20px;
-}
-.media-max-width-480px .navbar .nav,
-.media-max-width-480px .navbar .nav > li {
-  float: left;
-  display: inline;
-}
-.media-max-width-480px .navbar-inner {
-  text-align: left;
-}
-.media-max-width-480px .flex-caption {
-  display: none;
-}
-.media-max-width-480px .container {
-  width: auto;
-}
-.media-min-width-768px-max-width-979px header {
-  margin-top: -20px;
-}
-.media-min-width-768px-max-width-979px .navbar .nav,
-.media-min-width-768px-max-width-979px .navbar .nav > li {
-  float: left;
-  display: inline;
-}
-.media-min-width-768px-max-width-979px .container .nav-collapse .nav > li > a {
-  color: #fff;
-}
-.media-min-width-768px-max-width-979px .container .nav-collapse .nav > li > a:hover {
-  background-color: #1a3971;
-}
-.media-min-width-768px-max-width-979px .navbar-inner {
-  text-align: left;
-}
-.media-min-width-768px-max-width-979px .container {
-  width: 724px;
-}
 body {
   background: url('../img/grey.png') repeat;
   padding-top: 40px;
@@ -135,6 +34,10 @@ body {
   -o-animation-delay: 10s;
   -ms-animation-delay: 10s;
   animation-delay: 10s;
+}
+body div.photobg .container {
+  background: url() no-repeat;
+  padding: 20px 20px 0 20px;
 }
 h1 {
   font-family: "Droid Serif", Georgia, "Times New Roman", serif;
@@ -203,11 +106,14 @@ h6 {
 p {
   margin: 5px 0px;
 }
+a {
+  color: #0088cc;
+}
 a:visited {
-  color: #557d0d;
+  color: #0088cc;
 }
 a:hover {
-  color: #495e86;
+  color: #006699;
 }
 a:hover,
 a:active,
@@ -216,6 +122,12 @@ a:focus {
 }
 a .section-anchor {
   margin-bottom: 60px;
+}
+blockquote {
+  text-align: left;
+}
+blockquote cite {
+  text-align: right;
 }
 form {
   margin-top: 15px;
@@ -251,6 +163,13 @@ form button {
   height: 20px;
   width: 240px;
   margin: 0 auto;
+}
+#intro p {
+  font-size: 1.25em;
+}
+#intro p:first-letter {
+  font-size: 1.5em;
+  font-family: "Droid Serif", Georgia, "Times New Roman", serif;
 }
 .itop {
   width: 20px;
@@ -399,7 +318,7 @@ section .well {
   display: inline-block;
   border-radius: 10px;
   max-width: 700px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 24px;
 }
 section.location .about .vcard {
@@ -424,7 +343,7 @@ section.location .about .modal {
   max-height: inherit;
   width: inherit;
   margin-left: 0;
-  left: 4%;
+  left: 7%;
 }
 section.location .about .modal-body {
   max-height: inherit;
@@ -449,30 +368,6 @@ section.location .about #venue {
 .container-fluid {
   width: 940px;
 }
-.container-wave-style {
-  padding: 10px 20px;
-  background: #fafafa url('../img/wave.png') repeat;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.aboutperson img {
-  float: left;
-  margin-top: 8px;
-  margin-right: 8px;
-  border: 1px solid #ccc;
-  box-shadow: inset 0px 0px 3px #ccc;
-  background: #fff;
-}
-.aboutperson h3 {
-  font-weight: 700;
-}
-.aboutperson .ameta {
-  color: #888;
-  font-weight: normal;
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  line-height: 20px;
-}
 .about {
   padding: 10px 20px;
   background: #fafafa url('../img/wave.png') repeat;
@@ -483,8 +378,7 @@ section.location .about #venue {
 }
 .about img {
   float: left;
-  margin-top: 8px;
-  margin-right: 8px;
+  margin: 0 8px 0 15px;
   border: 1px solid #ccc;
   box-shadow: inset 0px 0px 3px #ccc;
   background: #fff;
@@ -502,14 +396,16 @@ section.location .about #venue {
 .about h3 {
   text-align: left;
 }
+.about div.row > p {
+  padding: 10px;
+}
 .wedding-party {
   text-align: left;
   padding: 10px 0;
 }
 .wedding-party img {
   float: left;
-  margin-top: 8px;
-  margin-right: 8px;
+  margin: 0 8px 0 15px;
   border: 1px solid #ccc;
   box-shadow: inset 0px 0px 3px #ccc;
   background: #fff;
@@ -595,6 +491,7 @@ ul.people li img {
 }
 @media (max-width: 767px) {
   body {
+    margin-top: -40px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -617,8 +514,8 @@ ul.people li img {
   }
   .navbar .nav,
   .navbar .nav > li {
-    float: left;
-    display: inline;
+    float: none;
+    display: block;
   }
   .navbar-inner {
     text-align: left;
@@ -631,17 +528,6 @@ ul.people li img {
   form button {
     margin-left: 0px;
   }
-  ul.people li {
-    margin-bottom: 10px;
-    display: block;
-    float: none;
-  }
-  ul.people li:nth-child(1):nth-last-child(2),
-  ul.people li:nth-child(2):nth-last-child(1),
-  ul.people li:nth-child(1):nth-last-child(1) {
-    text-align: left;
-    width: 100%;
-  }
 }
 @media (max-width: 480px) {
   header {
@@ -649,8 +535,8 @@ ul.people li img {
   }
   .navbar .nav,
   .navbar .nav > li {
-    float: left;
-    display: inline;
+    float: none;
+    display: block;
   }
   .navbar-inner {
     text-align: left;
@@ -663,13 +549,16 @@ ul.people li img {
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
+  body {
+    margin-top: -40px;
+  }
   header {
     margin-top: -20px;
   }
   .navbar .nav,
   .navbar .nav > li {
-    float: left;
-    display: inline;
+    float: none;
+    display: block;
   }
   .container .nav-collapse .nav > li > a {
     color: #fff;

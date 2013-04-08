@@ -1,5 +1,6 @@
 // Variables
-@linkvisited: #557d0d;
+@link: #0088cc;
+@linkvisited: saturate(@link, 50%);
 @primarybg: #5C76A6;
 @serif:"Droid Serif", Georgia, "Times New Roman", serif;
 @sansserif: 'Droid Sans', Arial, Helvetica, sans-serif;
@@ -25,23 +26,24 @@
 
 
 // Mixins
-.animdelay {
+.animdelay() {
     -webkit-animation-delay: 10s;
     -moz-animation-delay: 10s;
     -o-animation-delay: 10s;
     -ms-animation-delay: 10s;
     animation-delay: 10s;
 }
-.headers {
+.headers() {
     font-family: @serif;
     font-weight: normal;
-    .animdelay;
+    .animdelay();
 }
 
 /* For tablets & smart phones */
 // @media (max-width: 767px)
-.media-max-width-767px {
+.media-max-width-767px() {
     body {
+        margin-top: -40px;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -60,10 +62,9 @@
             margin: 5px 10px;
         }
     }
-
     .navbar .nav, .navbar .nav > li {
-        float: left;
-        display: inline;
+        float: none;
+        display: block;
     }
     .navbar-inner {
         text-align: left;
@@ -76,30 +77,17 @@
     form button {
         margin-left:0px;
     }
-    ul.people {
-        li {
-            margin-bottom: 10px;
-            display: block;
-            float: none;
-            &:nth-child(1):nth-last-child(2),
-            &:nth-child(2):nth-last-child(1),
-            &:nth-child(1):nth-last-child(1) {
-                text-align: left;
-                width: 100%;
-            }
-        }
-    }
 }
 
 /* For smartphones */
 // @media (max-width: 480px)
-.media-max-width-480px {
+.media-max-width-480px() {
     header {
         padding-top: 20px;
     }
     .navbar .nav, .navbar .nav > li {
-        float: left;
-        display: inline;
+        float: none;
+        display: block;
     }
     .navbar-inner {
         text-align: left;
@@ -115,13 +103,16 @@
 
 /* For smaller displays like laptops */
 // @media (min-width: 768px) and (max-width: 979px)
-.media-min-width-768px-max-width-979px {
+.media-min-width-768px-max-width-979px() {
+    body {
+        margin-top: -40px;
+    }
     header {
         margin-top: -20px;
     }
     .navbar .nav, .navbar .nav > li {
-        float: left;
-        display: inline;
+        float: none;
+        display: block;
     }
     .container .nav-collapse .nav > li > a {
         color: #fff;
@@ -148,42 +139,46 @@ body {
     color: @primarytext;
     font-size: 13px;
     line-height: 25px;
-    .animdelay;
+    .animdelay();
+    div.photobg .container {
+        background: url() no-repeat;
+        padding: 20px 20px 0 20px;
+    }
 }
 
 // Header elements
 h1 {
-    .headers;
+    .headers();
     font-size: 50px;
     line-height: 75px;
 }
 
 h2 {
-    .headers;
+    .headers();
     font-size: 35px;
     line-height: 45px;
 }
 
 h3 {
-    .headers;
+    .headers();
     font-size: 22px;
     line-height: 28px;
 }
 
 h4 {
-    .headers;
+    .headers();
     font-size: 18px;
     line-height: 24px;
 }
 
 h5 {
-    .headers;
+    .headers();
     font-size: 14px;
     line-height: 20px;
 }
 
 h6 {
-    .headers;
+    .headers();
 }
 
 // Non-header text
@@ -192,12 +187,13 @@ p {
 }
 
 a {
+    color: @link;
     &:visited {
         color: @linkvisited;
     }
 
     &:hover {
-        color: darken(@primarybg, 10%);
+        color: darken(@link, 10%);
     }
     &:hover, &:active, &:focus {
         outline: 0;
@@ -207,6 +203,14 @@ a {
     }
 }
 
+blockquote {
+    text-align: left;
+    cite {
+        text-align: right;
+    }
+}
+
+// Forms
 form {
     margin-top: 15px;
     input {
@@ -244,6 +248,17 @@ form {
     height: 20px;
     width: 240px;
     margin: 0 auto;
+}
+
+#intro {
+    p {
+        font-size: 1.25em;
+        &:first-letter {
+            font-size: 1.5em;
+            font-family: @serif;
+        }
+    }
+
 }
 
 .itop {
@@ -406,7 +421,7 @@ section {
         display: inline-block;
         border-radius: 10px;
         max-width: 700px;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 24px;
     }
     &.location .about {
@@ -432,8 +447,8 @@ section {
             max-height: inherit;
             width: inherit;
             margin-left: 0;
-            left: 4%;
-           
+            left: 7%;
+
         }
         .modal-body {
             max-height: inherit;
@@ -464,17 +479,16 @@ section {
 .container-fluid { width: 940px; }
 
 /* About */
-.container-wave-style {
+.container-wave-style() {
     padding: 10px 20px;
     background: #fafafa url('../img/wave.png') repeat;
     border-radius: 10px;
     margin-bottom: 10px;
 }
-.aboutperson {
+.aboutperson() {
     img {
         float: left;
-        margin-top: 8px;
-        margin-right: 8px;
+        margin: 0 8px 0 15px;
         border: 1px solid #ccc;
         box-shadow: inset 0px 0px 3px #ccc;
         background: #fff;
@@ -491,12 +505,15 @@ section {
     }
 }
 .about {
-    .aboutperson;
-    .container-wave-style;
+    .aboutperson();
+    .container-wave-style();
     border: 1px solid #eee;
     box-shadow: inset 0px 0px 2px #111;
     h3 {
         text-align: left;
+    }
+    div.row > p {
+        padding: 10px;
     }
 }
 .wedding-party {
@@ -596,15 +613,15 @@ ul.people {
 
 /* For tablets & smart phones */
 @media (max-width: 767px) {
-    .media-max-width-767px;
+    .media-max-width-767px();
 }
 
 /* For smartphones */
 @media (max-width: 480px) {
-    .media-max-width-480px;
+    .media-max-width-480px();
 }
 
 /* For smaller displays like laptops */
 @media (min-width: 768px) and (max-width: 979px) {
-    .media-min-width-768px-max-width-979px;
+    .media-min-width-768px-max-width-979px();
 }
