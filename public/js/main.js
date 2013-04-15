@@ -45,13 +45,13 @@ $(function() {
   $('.flexslider').flexslider({
     slideshow: true,
     directionNav: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     slideshowSpeed: 5000
   });
 
   // Leaflet setup
   if(typeof L !== 'undefined') {
-    $('.location .row > .span6').eqHeights();
+    $('.location > .span6').eqHeights();
     L.Icon.Default.imagePath = '/img/vendor';
     var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg',
     subDomains = ['otile1','otile2','otile3','otile4'],

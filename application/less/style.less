@@ -3,7 +3,7 @@
 @linkvisited: saturate(@link, 50%);
 @primarybg: #5C76A6;
 @serif:"Droid Serif", Georgia, "Times New Roman", serif;
-@sansserif: 'Droid Sans', Arial, Helvetica, sans-serif;
+@sansserif: 'Roboto Condensed', Arial, Helvetica, sans-serif;
 @primarytext: #333333;
 @lighttext: #DDDDDD;
 
@@ -147,7 +147,7 @@ body {
     padding-top: 40px;
     font-family: @sansserif;
     color: @primarytext;
-    font-size: 13px;
+    font-size: 1.05em;
     line-height: 25px;
     .animdelay();
     div.photobg .container {
@@ -194,9 +194,11 @@ h6 {
 // Non-header text
 p {
     margin: 5px 0px;
+    font-weight: 300;
 }
 
 a {
+    font-family: @sansserif;
     color: @link;
     &:visited {
         color: @linkvisited;
@@ -218,17 +220,20 @@ blockquote {
     cite {
         text-align: right;
     }
+    p {
+        font-weight: 700;
+    }
 }
 
 // Forms
 form {
     margin-top: 15px;
     input {
-        margin: 10px 0px;
+        //margin: 10px 0px;
     }
     button {
-        margin: 10px 0px;
-        margin-left:15px;
+        //margin: 10px 0px;
+        //margin-left:15px;
     }
 }
 
@@ -431,12 +436,20 @@ section {
         display: inline-block;
         border-radius: 10px;
         max-width: 700px;
-        font-size: 14px;
+        font-size: 1em;
         line-height: 24px;
     }
-    &.location .about {
+    .location .about {
+        .leaflet-popup-content {
+            .vcard {
+                font-size: 1.1em;
+                line-height: 1.5em;
+            }
+        }
         .vcard {
             text-align: left;
+            font-size: 0.9em;
+            font-family: @sansserif;
         }
         img {
             float: none;
@@ -472,6 +485,7 @@ section {
 .leaflet-control-layers-toggle {
 	background-image: url(../img/vendor/layers.png);
 }
+
 
 /* Head */
 
@@ -604,7 +618,13 @@ ul.people {
     }
 }
 
-
+ul.registry {
+    padding-top: 10px;
+    li {
+        list-style-type: none;
+        padding-bottom: 20px;
+    }
+}
 /* Wedding */
 
 .wedding{

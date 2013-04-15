@@ -25,9 +25,9 @@
 body {
   background: url('../img/grey.png') repeat;
   padding-top: 40px;
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: #333333;
-  font-size: 13px;
+  font-size: 1.05em;
   line-height: 25px;
   -webkit-animation-delay: 10s;
   -moz-animation-delay: 10s;
@@ -105,8 +105,10 @@ h6 {
 }
 p {
   margin: 5px 0px;
+  font-weight: 300;
 }
 a {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: #0088cc;
 }
 a:visited {
@@ -129,15 +131,11 @@ blockquote {
 blockquote cite {
   text-align: right;
 }
+blockquote p {
+  font-weight: 700;
+}
 form {
   margin-top: 15px;
-}
-form input {
-  margin: 10px 0px;
-}
-form button {
-  margin: 10px 0px;
-  margin-left: 15px;
 }
 .border {
   height: 20px;
@@ -318,13 +316,19 @@ section .well {
   display: inline-block;
   border-radius: 10px;
   max-width: 700px;
-  font-size: 14px;
+  font-size: 1em;
   line-height: 24px;
 }
-section.location .about .vcard {
-  text-align: left;
+section .location .about .leaflet-popup-content .vcard {
+  font-size: 1.1em;
+  line-height: 1.5em;
 }
-section.location .about img {
+section .location .about .vcard {
+  text-align: left;
+  font-size: 0.9em;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+section .location .about img {
   float: none;
   margin: 0;
   padding: 0;
@@ -335,21 +339,21 @@ section.location .about img {
   font: inherit;
   vertical-align: baseline;
 }
-section.location .about #map-hotel,
-section.location .about #map-venue {
+section .location .about #map-hotel,
+section .location .about #map-venue {
   height: 200px;
 }
-section.location .about .modal {
+section .location .about .modal {
   max-height: inherit;
   width: inherit;
   margin-left: 0;
   left: 7%;
 }
-section.location .about .modal-body {
+section .location .about .modal-body {
   max-height: inherit;
 }
-section.location .about #hotel,
-section.location .about #venue {
+section .location .about #hotel,
+section .location .about #venue {
   cursor: pointer;
 }
 .leaflet-control-layers-toggle {
@@ -389,7 +393,7 @@ section.location .about #venue {
 .about .ameta {
   color: #888;
   font-weight: normal;
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 20px;
 }
@@ -416,7 +420,7 @@ section.location .about #venue {
 .wedding-party .ameta {
   color: #888;
   font-weight: normal;
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 20px;
 }
@@ -474,6 +478,13 @@ ul.people li:nth-child(2):nth-last-child(1) {
 }
 ul.people li img {
   padding-right: 10px;
+}
+ul.registry {
+  padding-top: 10px;
+}
+ul.registry li {
+  list-style-type: none;
+  padding-bottom: 20px;
 }
 .wedding {
   padding: 10px 20px;
