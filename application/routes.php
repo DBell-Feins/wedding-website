@@ -32,15 +32,21 @@
 |
 */
 
-Route::get('(:any)/(:any?)', function($action, $name=null)
+Route::get('/rsvp/form', array('before' => 'auth', function()
 {
-   return Controller::call('page@' . $action, array($name)); 
+  return Controller::call('page@rsvpform');
+}));
+
+Route::any('(:any)/(:any?)', function($action, $name=null)
+{
+   return Controller::call('page@' . $action, array($name));
 });
 
 Route::get('/', function()
 {
     return Controller::call('page@index');
 });
+
 
 
 /*
@@ -113,5 +119,5 @@ Route::filter('csrf', function()
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()) return Redirect::to('rsvp');
 });
