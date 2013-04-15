@@ -39,7 +39,16 @@ function equalHeight(group) {
 }
 
 $(function() {
-  equalHeight($('.about'));
+  if($(window).width() >= 768) {
+    equalHeight($('.about'));
+  }
+  $(window).resize(function() {
+    if($(window).width() >= 768) {
+      equalHeight($('.about'));
+    } else {
+      $('.about').css('height', 'auto');
+    }
+  });
 
   // Slider setup
   $('.flexslider').flexslider({

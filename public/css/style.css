@@ -24,7 +24,6 @@
 }
 body {
   background: url('../img/grey.png') repeat;
-  padding-top: 40px;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: #333333;
   font-size: 1.05em;
@@ -502,7 +501,6 @@ ul.registry li {
 }
 @media (max-width: 767px) {
   body {
-    margin-top: -40px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -530,6 +528,8 @@ ul.registry li {
   }
   .navbar-inner {
     text-align: left;
+    margin-left: -20px;
+    margin-right: -20px;
   }
   .wedding {
     text-align: center;
@@ -561,14 +561,16 @@ ul.registry li {
   .container {
     width: auto;
   }
+  div.about img {
+    float: none;
+  }
   div.about blockquote {
     border: 0;
+    clear: both;
+    padding-top: 10px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  body {
-    margin-top: -40px;
-  }
   header {
     margin-top: -20px;
   }
