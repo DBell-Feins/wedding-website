@@ -42,18 +42,18 @@ Class Menu {
             }
         }
         $nav_arr = array();
-        // Diagnose why two extra hidden elements are being created
+        $logout = array();
         foreach($pages as $k=>$v)
         {
             $nav_arr[] = array($v['name'], $v['slug'], $v['active'], false, null, $v['icon']);
         }
         if(Auth::check())
         {
-            $nav_arr[] = array('Logout', 'logout');
+            $logout = Navigation::links(array(array('Logout', 'logout')));
         }
         return Navbar::create()
         ->with_menus(Navigation::links($nav_arr))
-        ->with_menus(Navigation::links(array('Logout', 'logout')))
+        ->with_menus($logout, array('class' => 'pull-right'))
         ->collapsible();
     }
 
