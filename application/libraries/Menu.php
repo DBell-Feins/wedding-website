@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Helper class for generating the menu
@@ -42,11 +42,19 @@ Class Menu {
             }
         }
         $nav_arr = array();
+        // Diagnose why two extra hidden elements are being created
         foreach($pages as $k=>$v)
         {
             $nav_arr[] = array($v['name'], $v['slug'], $v['active'], false, null, $v['icon']);
         }
-        return Navigation::menu(Navigation::links($nav_arr));
+        if(Auth::check())
+        {
+            $nav_arr[] = array('Logout', 'logout');
+        }
+        return Navbar::create()
+        ->with_menus(Navigation::links($nav_arr))
+        ->with_menus(Navigation::links(array('Logout', 'logout')))
+        ->collapsible();
     }
 
 }
