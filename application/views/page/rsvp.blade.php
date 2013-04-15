@@ -1,24 +1,38 @@
-@layout('page.master')
+@layout('layouts.master')
 
 @section('content')
-    <section class="container">
-        @render('partials.header', array('title' => $title))
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="well">
-                    <h3>Please fill out the below form</h3>
-                    <p>Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet. Quisque eu consectetur erat.</p>
-                    <form class="form-inline">
-                    <div class="controls controls-row">
-                    <input class="span2" type="text" placeholder="Name">
-                    <input class="span2" type="text" placeholder="Email">
-                    <input class="span2 " type="text" placeholder="Attending?">
-                    <button type="submit" class="btn btn-success">Submit</button>
+    @include('partials.header')
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="well">
+                <h3>Please fill out the form below</h3>
+                <p>Enter your email address and the RSVP ID included in your invitation.</p>
+                <div class="span8">
+                    {{ Form::horizontal_open() }}
+                    {{ Form::token() }}
+
+                    <div class="control-group {{ $errors->has('email') ? 'error' : '' }}">
+                        {{ Form::label('email', 'E-Mail Address', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::text('email', Input::old('email')) }}
+                            {{ $errors->first('email') }}
+                        </div>
                     </div>
-                    </form>
-                    <p>If you have any questions, let me know <a href="mailto:something@gmail.com">something@gmail.com</a></p>
+                    <div class="control-group {{ $errors->has('rsvpid') ? 'error' : '' }}">
+                        {{ Form::label('rsvpid', 'RSVP ID', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::text('rsvpid', Input::old('rsvpid')) }}
+                            {{ $errors->first('rsvpid') }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            {{ Form::submit('Submit') }}
+                        </div>
+                    </div>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

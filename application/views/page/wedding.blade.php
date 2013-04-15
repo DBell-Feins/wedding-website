@@ -1,8 +1,7 @@
-@layout('page.master')
+@layout('layouts.master')
 
 @section('content')
-<section class="container">
-    @render('partials.header', array('title' => $title))
+    @include('partials.header')
     <div class="row-fluid">
             <div class="span12">
                 <div class="well center">
@@ -22,5 +21,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

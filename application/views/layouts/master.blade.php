@@ -12,6 +12,7 @@
 
         <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
 
         {{ Asset::container('header')->styles() }}
         <!--[if IE 7]>
@@ -21,7 +22,10 @@
     </head>
     <body>
         @include('partials.menu')
-        @yield('content')
+        <section class="container">
+            @include('partials.notifications')
+            @yield('content')
+        </section>
         <!-- JS -->
         <img id="hzDownscaled" style="position: absolute; top: -10000px;">
 
