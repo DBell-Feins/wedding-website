@@ -1,20 +1,7 @@
-/*global $:true, console:true, L:true */
+/*global $:true, L:true */
 
-/**
- * Handles modal invocation
- * @param  {String} location The location (venue or hotel)
- * @param  {Object} mapObj   Leaflet map objec
- */
-function mapImgClick(location, mapObj) {
-  $('.location #'+ location ).click(function() {
-    var loc = $('#map-' + location + '-modal'), w = $(window).width() * 0.8,
-    h = $(window).height() * 0.6;
-    loc.height(h).width(w).css('padding', '15px');
-    $('#' + location + 'Modal').modal().on('shown', function() {
-      mapObj.invalidateSize(true);
-    });
-  });
-}
+
+// global variables (kill me)
 
 /**
  * Sets the popup for each location marker
@@ -42,11 +29,9 @@ $(function() {
   if($(window).width() >= 768) {
     equalHeight($('.about'));
   }
-  $(window).resize(function() {
-    if($(window).width() >= 768) {
-      equalHeight($('.about'));
-    } else {
-      $('.about').css('height', 'auto');
+  $('window').resize(function() {
+    if($(window).width() > 767) {
+      $('.location > .span6').eqHeights();
     }
   });
 
@@ -60,7 +45,6 @@ $(function() {
 
   // Leaflet setup
   if(typeof L !== 'undefined') {
-    $('.location > .span6').eqHeights();
     L.Icon.Default.imagePath = '/img/vendor';
     var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg',
     subDomains = ['otile1','otile2','otile3','otile4'],
@@ -71,39 +55,90 @@ $(function() {
       subdomains: subDomains,
       reuseTiles: true
     },
-    venueLayer = new L.TileLayer(cloudmadeUrl, tileLayerObj),
-    hotelLayer = new L.TileLayer(cloudmadeUrl, tileLayerObj),
+    layer = new L.TileLayer(cloudmadeUrl, tileLayerObj),
+    /*venueLayer = new L.TileLayer(cloudmadeUrl, tileLayerObj),
+    hotelLayer = new L.TileLayer(cloudmadeUrl, tileLayerObj),*/
     venue = new L.LatLng(42.2446341, -72.0185379),
     hotel = new L.LatLng(42.113588, -72.089949),
-    hotelMap = new L.Map('map-hotel-modal', {center: hotel, zoom: 13, layers: [hotelLayer]}),
-    venueMap = new L.Map('map-venue-modal', {center: venue, zoom: 13, layers: [venueLayer]}),
-    hotelMarker = L.marker(hotel).addTo(hotelMap),
-    venueMarker = L.marker(venue).addTo(venueMap),
+    locations = L.layerGroup([venue, hotel]),
+    map = new L.Map('map-modal', {center: hotel, zoom: 13, layers: [layer]}),
+    /*hotelMap = new L.Map('map-hotel-modal', {center: hotel, zoom: 13, layers: [hotelLayer]}),
+    venueMap = new L.Map('map-venue-modal', {center: venue, zoom: 13, layers: [venueLayer]}),*/
+
+    hotelMarker = L.marker(hotel),
+    venueMarker = L.marker(venue),
+
+    /*hotelMarker = L.marker(hotel).addTo(hotelMap),
+    venueMarker = L.marker(venue).addTo(venueMap),*/
     hotelStr = '<div id="" class="vcard"><div class="org"><a href="http://www.sturbridgehosthotel.com/">Sturbridge Host Hotel & Conference Center</a></div><div class="adr"><div class="street-address">366 Main Street</div><span class="locality">Sturbridge</span>,<span class="region">MA</span>,<span class="postal-code">01566</span></div><div class="tel">(508) 347-7393</div></div>',
     venueStr = '<div id="" class="vcard"><div class="org"><a href="http://www.zukas.com/">Zukas Hilltop Barn</a></div><div class="adr"><div class="street-address">89 Smithville Road</div><span class="locality">Spencer</span>,<span class="region">MA</span>,<span class="postal-code">01562</span></div><div class="tel">(508) 885-5320</div></div>',
-    currentLoc = '', markerArgs = { loc: '', locations: { hotel: { marker: hotelMarker, str: hotelStr, daddr: 'Sturbridge+Host+Hotel+Sturbridge,+MA,+01566' }, venue: { marker: venueMarker, str: venueStr, daddr: 'Zukas+Hilltop+Barn+Spencer,+MA,+01562' } } };
+    currentLoc = '',
+    markerArgs = {
+      loc: '',
+      locations: {
+        hotel: {
+          marker: hotelMarker,
+          str: hotelStr,
+          daddr: 'Sturbridge+Host+Hotel+Sturbridge,+MA,+01566'
+        },
+        venue: {
+          marker: venueMarker,
+          str: venueStr,
+          daddr: 'Zukas+Hilltop+Barn+Spencer,+MA,+01562'
+        }
+      }
+    };
 
     // Location services and event handlers
-    hotelMap.locate();
+    map.locate();
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+    /*hotelMap.locate();
     venueMap.locate();
     hotelMap.on('locationfound', onLocationFound);
     venueMap.on('locationfound', onLocationFound);
     hotelMap.on('locationerror', onLocationError);
-    venueMap.on('locationerror', onLocationError);
+    venueMap.on('locationerror', onLocationError);*/
+
+
+
+    /**
+     * Handles modal invocation
+     * @param  {String} location The location (venue or hotel)
+     * @param  {Object} mapObj   Leaflet map objec
+     */
+    function mapImgClick(location, mapObj, marker, loc) {
+      $('.location #'+ location ).click(function() {
+        var loc = $('#map-modal'), w = $(window).width() * 0.8,
+        h = $(window).height() * 0.6;
+        loc.height(h).width(w).css('padding', '15px');
+        $('#locModal').modal().on('shown', function() {
+          if(location === 'hotel') {
+            marker.addTo(mapObj);
+          } else if(location === 'venue') {
+            marker.addTo(mapObj);
+          }
+          mapObj.invalidateSize(true);
+        });
+      });
+    }
 
     // Set markers and provide callbacks for locationfound and locationerror
     setMarkers(markerArgs);
+    function onLocationError() {
+      setMarkers(markerArgs);
+    }
     function onLocationFound(e) {
       currentLoc = e.latlng.lat + ', ' + e.latlng.lng;
       markerArgs.loc = currentLoc;
       setMarkers(markerArgs);
     }
-    function onLocationError(e) {
-      setMarkers(markerArgs);
-    }
 
     // Leaflet interactions
-    mapImgClick('hotel', hotelMap);
-    mapImgClick('venue', venueMap);
+    mapImgClick('hotel', map, hotelMarker);
+    mapImgClick('venue', map, venueMarker);
+
+    /*mapImgClick('hotel', hotelMap);
+    mapImgClick('venue', venueMap);*/
   }
 });

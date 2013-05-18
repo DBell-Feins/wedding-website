@@ -1,0 +1,11 @@
+{
+  "name": "laravel-coffeescript",
+  "version": "0.0.1",
+  "description": "A package that allows you to compile CoffeeScript from Laravel",
+  "author": "David Bell-Feins <David_Bell-Feins@abtassoc.com>",
+  "dependencies" : {
+    "coffee-script":  "1.6.x",
+    "rehab": "0.x.x",
+    "uglify-js": "2.2.x"
+  }
+}

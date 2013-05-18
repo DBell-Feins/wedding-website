@@ -49,7 +49,7 @@ Class Menu {
         }
         if(Auth::check())
         {
-            $logout = Navigation::links(array(array('Logout', 'logout')));
+            $logout = Navigation::links(array(array('Logout', '/logout')));
         }
         return Navbar::create()
         ->with_menus(Navigation::links($nav_arr))

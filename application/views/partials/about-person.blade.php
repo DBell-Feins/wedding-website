@@ -6,7 +6,12 @@
                 {{ HTML::image($person->image_url, ''); }}
             </div>
             <div class="span8">
-                {{ $person->quote }}
+                <blockquote>
+              <p>{{ $person->quote  }}</p>
+              <small>
+                  <cite title="{{ $person->first_name }} {{ $person->last_name }}">{{ $person->first_name }} {{ $person->last_name }}</cite>
+              </small>
+            </blockquote>
             </div>
         </div>
         <div class="row">

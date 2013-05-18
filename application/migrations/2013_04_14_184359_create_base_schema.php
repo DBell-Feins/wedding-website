@@ -12,9 +12,8 @@ class Create_Base_Schema {
 		Schema::create('invitations', function($table)
     {
       $table->increments('id');
-      $table->string('password');
       $table->string('rsvpid')->unique();
-      $table->string('email')->nullable();
+      $table->string('password');
       $table->integer('seats');
       $table->timestamps();
     });

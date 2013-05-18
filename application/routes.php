@@ -32,7 +32,7 @@
 |
 */
 
-Route::get('/rsvp/form', array('before' => 'auth', function()
+Route::any('/rsvp/form', array('before' => 'auth', function()
 {
   return Controller::call('page@rsvpform');
 }));

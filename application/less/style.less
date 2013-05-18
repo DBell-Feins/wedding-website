@@ -192,6 +192,7 @@ h5 {
     .headers();
     font-size: 14px;
     line-height: 20px;
+    font-weight: bold;
 }
 
 h6 {
@@ -234,6 +235,12 @@ blockquote {
 
 // Forms
 form {
+    &.rsvp {
+        text-align: left;
+        h4 {
+            text-decoration: underline;
+        }
+    }
     margin-top: 15px;
     input {
         //margin: 10px 0px;
@@ -241,6 +248,10 @@ form {
     button {
         //margin: 10px 0px;
         //margin-left:15px;
+    }
+    .form-actions {
+        background: transparent;
+        border-top: 0;
     }
 }
 
@@ -591,6 +602,9 @@ section {
                }
                 div {
                     display: inline;
+                }
+                p {
+                    padding-bottom: 1em;
                 }
                 max-width: 90%;
                 margin-left: auto;

@@ -92,6 +92,7 @@ h5 {
   animation-delay: 10s;
   font-size: 14px;
   line-height: 20px;
+  font-weight: bold;
 }
 h6 {
   font-family: "Droid Serif", Georgia, "Times New Roman", serif;
@@ -135,6 +136,16 @@ blockquote p {
 }
 form {
   margin-top: 15px;
+}
+form.rsvp {
+  text-align: left;
+}
+form.rsvp h4 {
+  text-decoration: underline;
+}
+form .form-actions {
+  background: transparent;
+  border-top: 0;
 }
 .border {
   height: 20px;
@@ -458,6 +469,9 @@ section .location .about #venue {
 }
 .flexslider .slides li .person div {
   display: inline;
+}
+.flexslider .slides li .person p {
+  padding-bottom: 1em;
 }
 ul.people {
   list-style-type: none;

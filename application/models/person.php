@@ -12,7 +12,6 @@ class Person extends Eloquent {
     return $this->belongs_to('Invitation');
   }
 
-
   public static function get_person($name)
   {
     return Person::where('slug', '=', $name)->first();
@@ -21,5 +20,15 @@ class Person extends Eloquent {
   public static function get_people($names)
   {
     return Person::where_in('slug', $names)->get();
+  }
+
+  public static function get_guests()
+  {
+    return Person::where('role', '=', 'Guest')->get();
+  }
+
+  public static function get_bridal_party()
+  {
+    return Person::where_in('role', array('Maid of Honor', 'Bridesmaid', 'Best Man', 'Groomsman'))->get();
   }
 }

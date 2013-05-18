@@ -25,15 +25,29 @@ class Invitation extends Eloquent {
     return $this->has_many('Person');
   }
 
-  /**
-   * [get_people_by description]
-   * @param  [type] $type [description]
-   * @param  [type] $arg  [description]
-   * @return [type]       [description]
-   */
-  public static function get_people_by($type, $arg)
+  public static function get_people($arg)
   {
-    return Invitation::where($type, '=', $arg)->first()->people()->get();
+    $type = is_object($arg) ? get_class($arg) : gettype($arg);
+
+    $people = array();
+    switch ($type) {
+      case 'Invitation':
+        $people = $arg->people();
+        break;
+      case 'array':
+        $invitations = Invitation::all();
+        foreach($arg as $k => $v)
+        {
+          $people[] = Person::where($k, '=', $v)->get();
+        }
+        break;
+    }
+    return $people;
+  }
+
+  public static function logged_in_invitation($user)
+  {
+    return Invitation::where('rsvpid', '=', $user->rsvpid)->first();
   }
 
   /**

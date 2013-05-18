@@ -23,30 +23,6 @@ class Page_Controller extends Base_Controller {
   );
 
   /**
-  * Constructor function
-  */
-  function __construct() {
-    // Register scripts
-    Asset::container('header')->add('modernizr', 'js/vendor/modernizr-2.6.2-respond-1.1.0.min.js');
-    Asset::container('footer')->add('bootstrap-js', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js');
-    Asset::container('footer')->add('flexslider', 'js/vendor/jquery.flexslider-min.js');
-    Asset::container('footer')->add('plugins', 'js/plugins.js');
-    Asset::container('footer')->add('main', 'js/main.js');
-
-
-    // Register CSS
-    Asset::container('header')->add('bootstrap', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css');
-    Asset::container('header.ie7')->add('font-awesome-ie7', 'http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css');
-    Asset::container('header')->add('font-awesome-css', 'http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css');
-
-    Asset::container('header')->add('flexslider-css', 'css/vendor/flexslider.css');
-    Asset::container('header')->add('style', 'css/style.css');
-
-    // Call parent constructor to complete Controller registration
-    parent::__construct();
-  }
-
-  /**
   * Handles the page@index GET request
   * @return object
   */
@@ -66,12 +42,6 @@ class Page_Controller extends Base_Controller {
     $dave = Person::get_person('dave');
     $liz = Person::get_person('liz');
 
-    /*$this->layout->nest('content', 'page.about', array(
-      'title' => 'Our Story',
-      'people' => array('dave' => $dave, 'liz' => $liz),
-      'nav' => Menu::build_menu($this->pages)));
-*/
-      //die('<pre>' . print_r($this->layout->data['nav'], true) . '</pre>');
     return View::make('page.about')
       ->with('nav', Menu::build_menu($this->pages))
       ->with('title', 'Our Story')
@@ -123,7 +93,7 @@ class Page_Controller extends Base_Controller {
     }
     else
     {
-      $people = Person::get_people(array('autumn', 'emily', 'ashley', 'jon', 'rob', 'curtis'));
+      $people = Person::get_bridal_party();
       return View::make('page.wedding')
         ->with('nav', Menu::build_menu($this->pages))
         ->with('title', 'The Wedding Party')
@@ -164,15 +134,22 @@ class Page_Controller extends Base_Controller {
   */
   public function get_rsvp()
   {
+    if(Auth::check())
+    {
+      return Redirect::to('rsvp/form');
+    }
+    else
+    {
     return View::make('page.rsvp-login')
       ->with('nav', Menu::build_menu($this->pages))
       ->with('title', 'RSVP');
+    }
   }
 
   public function post_rsvp()
   {
   // Get all the inputs.
-    $creds = array('username' => Input::get('email'), 'password' => Input::get('rsvpid'));
+    $creds = array('username' => Input::get('rsvpid'), 'password' => Input::get('rsvpid'));
 
     // Validate the inputs.
     if(($val = Invitation::validate(Input::all())) === true)
@@ -188,7 +165,7 @@ class Page_Controller extends Base_Controller {
       {
         // Redirect to the login page.
         return Redirect::to('rsvp')
-          ->with('error', 'Username/password invalid.');
+          ->with('error', 'Invalid RSVP ID.');
       }
     }
     else
@@ -200,11 +177,68 @@ class Page_Controller extends Base_Controller {
 
   public function get_rsvpform()
   {
+    $ends = array('th','st','nd','rd','th','th','th','th','th','th');
+
+    $invitation = Invitation::logged_in_invitation(Auth::user());
+    $p = Invitation::get_people(Auth::user());
+    $people = array();
+    foreach($p->get() as $v)
+    {
+      $people[] = $v->to_array();
+    }
+
+    $people = count($people) > 0 ? $people : array();
+
+    for($i = 0; $i < $invitation->seats; $i++)
+    {
+      if (($i + 1 % 100) >= 11 && ($i +1 % 100) <= 13)
+      {
+        $abbreviation = $i + 1 . 'th';
+      }
+      else
+      {
+        $abbreviation = $i + 1 . $ends[$i + 1 % 10];
+      }
+      $people[$i]['num'] = $abbreviation;
+    }
+
     return View::make('page.rsvp')
       ->with('nav', Menu::build_menu($this->pages))
-      ->with('title', 'RSVP');
-    //die('<pre>' . print_r(Invitation::get_people_by('email', Auth::user()->email), true) . '</pre>');
+      ->with('title', 'RSVP')
+      ->with('people', $people);
+  }
 
+  public function post_rsvpform()
+  {
+    $invitation = Invitation::logged_in_invitation(Auth::user());
+
+    $fields = Input::all();
+    foreach($fields['guest'] as $i => $guest)
+    {
+      /**
+       * Laravel modifies the root query every time we pass another clause to it,
+       * so we have to reset it with every iteration.
+       */
+      $id = isset($guest['id']) ? $guest['id'] : null;
+      $people = Invitation::get_people(Auth::user());
+      $query = $people->find($id);
+      if(count($query) > 0)
+      {
+        unset($guest['id']);
+        $guest['attending'] = isset($guest['attending']) ? true : null;
+        // Update
+        $query->update($id, $guest);
+      }
+      else
+      {
+        // New
+        $guest['role'] = 'Guest';
+        $guest['attending'] = isset($guest['attending']) ? true : null;
+        // Create
+        $invitation->people()->insert($guest);
+      }
+    }
+    return $this->logout('success', 'Thank you for submitting your RSVP! We look forward to seeing you at our wedding.', '/rsvp');
   }
 
   /**
@@ -215,11 +249,14 @@ class Page_Controller extends Base_Controller {
    */
   public function get_logout()
   {
-    // Log the user out.
+    return $this->logout('success', 'Logged out successfully');
+  }
+
+  private function logout($type, $message, $path = '/')
+  {
     Auth::logout();
 
-    // Redirect to the home page.
-    return Redirect::to('/')
-      ->with('success', 'Logged out successfully');
+    return Redirect::to($path)
+      ->with($type, $message);
   }
 }
