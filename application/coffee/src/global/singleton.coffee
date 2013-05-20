@@ -1,5 +1,8 @@
 root = this
-$ = jQuery
+root.$ = jQuery
+if typeof L != 'undefined'
+  root.L = L
+
 
 class Singleton
   @instance = null

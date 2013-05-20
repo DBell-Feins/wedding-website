@@ -7,7 +7,7 @@
             <div class="about">
                 <!-- Ceremony details -->
                 <h4><i class="icon-heart"></i> Ceremony & Reception</h4>
-                @render('partials.venue-modal')
+                @render('partials.loc-modal')
                 <div class="row">
                     <div class="span2">
                         <div id="" class="vcard">
@@ -64,4 +64,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('css')
+    @parent
+    {{ Asset::container('leaf-header.ie7')->styles() }}
+    {{ Asset::container('leaf-header')->styles() }}
+@endsection
+
+@section('footer')
+    {{ Asset::container('leaf-footer')->scripts() }}
+    @parent
 @endsection

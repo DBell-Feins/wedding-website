@@ -159,6 +159,9 @@ form .form-actions {
 ::-moz-focus-inner {
   border: 0;
 }
+#notifications {
+  margin-bottom: 30px;
+}
 .well {
   background: #fff;
   border-radius: 15px;
@@ -412,6 +415,15 @@ section .location .about #venue {
 }
 .about div.row > p {
   padding: 10px;
+}
+.container .story {
+  max-width: inherit;
+}
+.container .story p {
+  font-size: 0.9em;
+}
+.container .story p.emph {
+  font-weight: bold;
 }
 .wedding-party {
   text-align: left;

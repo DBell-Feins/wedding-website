@@ -14,11 +14,17 @@
         <link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
 
-        {{ Asset::container('header')->styles() }}
-        <!--[if IE 7]>
-            {{ Asset::container('header.ie7')->styles() }}
-        <![endif]-->
-        {{ Asset::container('header')->scripts() }}
+        @section('css')
+            {{ Asset::container('header')->styles() }}
+            <!--[if IE 7]>
+                {{ Asset::container('header.ie7')->styles() }}
+            <![endif]-->
+        @yield_section
+
+        @section('header-js')
+            {{ Asset::container('header')->scripts() }}
+        @yield_section
+
     </head>
     <body>
         @include('partials.menu')
@@ -32,7 +38,9 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write("{{ URL::base() . '/js/vendor/jquery-1.9.0.min.js'; }}");</script>
 
-        {{ Asset::container('footer')->scripts() }}
+        @section('footer')
+            {{ Asset::container('footer')->scripts() }}
+        @yield_section
 
 
         <script>

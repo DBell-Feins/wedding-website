@@ -87,8 +87,8 @@ class Page_Controller extends Base_Controller {
       {
         return View::make('page.wedding-person')
           ->with('nav', Menu::build_menu($this->pages))
-          ->with('person', $ret_person->to_array())
-          ->with('title', $ret_person->name);
+          ->with('person', $ret_person)
+          ->with('title', $ret_person->first_name . ' ' . $ret_person->last_name);
       }
     }
     else
@@ -118,11 +118,6 @@ class Page_Controller extends Base_Controller {
   */
   public function get_location()
   {
-    // Include leaflet resources
-    Asset::container('header.ie7')->add('leaflet-ie7', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css');
-    Asset::container('header')->add('leaflet-css', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css');
-    Asset::container('footer')->add('leaflet', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js');
-
     return View::make('page.location')
       ->with('nav', Menu::build_menu($this->pages))
       ->with('title', 'Location');
@@ -225,9 +220,24 @@ class Page_Controller extends Base_Controller {
       if(count($query) > 0)
       {
         unset($guest['id']);
-        $guest['attending'] = isset($guest['attending']) ? true : null;
-        // Update
-        $query->update($id, $guest);
+        $guest['attending'] = isset($guest['attending']) ? "1" : null;
+        /**
+         * Test if there are any actual updated values. If not, we don't want
+         * to update the record so we can look at attending vs. declined trends
+         * in the admin panel
+         */
+        $update = false;
+        foreach($guest as $k => $v)
+        {
+          if($query->$k !== $v)
+          {
+            $update = true;
+          }
+        }
+        if($update === true)
+        {
+          $query->update($id, $guest);
+        }
       }
       else
       {

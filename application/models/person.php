@@ -29,6 +29,6 @@ class Person extends Eloquent {
 
   public static function get_bridal_party()
   {
-    return Person::where_in('role', array('Maid of Honor', 'Bridesmaid', 'Best Man', 'Groomsman'))->get();
+    return Person::where_in('role', array('Maid of Honor', 'Bridesmaid', 'Best Man', 'Groomsman', 'Usher'))->get();
   }
 }

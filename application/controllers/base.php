@@ -23,8 +23,12 @@ class Base_Controller extends Controller {
     Asset::container('footer')->add('bootstrap-js', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js');
     Asset::container('footer')->add('flexslider', 'js/vendor/jquery.flexslider-min.js');
     Asset::container('footer')->add('plugins', 'js/plugins.js');
-    Asset::container('footer')->add('main', 'js/main.js');
+    Asset::container('footer')->add('main', 'js/main.min.js', array('plugins', 'leaflet'));
 
+    // Include leaflet resources
+    Asset::container('leaf-header.ie7')->add('leaflet-ie7', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css');
+    Asset::container('leaf-header')->add('leaflet-css', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css');
+    Asset::container('leaf-footer')->add('leaflet', 'http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js');
 
     // Register CSS
     Asset::container('header')->add('bootstrap', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css');

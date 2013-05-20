@@ -70,5 +70,5 @@ go = (watch, options, callback) ->
 
 
 # Tasks
-task "build", "Build coffee2js using Rehab", (options) -> go false, options, log ":-)", green
+task "build", "Build coffee2js using Rehab", (options) -> go false, options, log "COMPILED", green
 task "watch", "Watch a file or folder, then compile and uglify", (options) -> go true, options, log ":-)", green

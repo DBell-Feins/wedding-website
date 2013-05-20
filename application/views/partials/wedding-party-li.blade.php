@@ -1,4 +1,5 @@
 <li>
+
     <div class="person fluid-row">
         <div class="span4">{{ HTML::image($person->image_url, ''); }}</div>
         <div class="span8">
