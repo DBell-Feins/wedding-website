@@ -35,9 +35,8 @@
 
 return array(
 
-	'docs' => array('handles' => 'docs'),
+  'adminify' => array('handles' => 'admin'),
   'bootstrapper' => array('auto' => true),
   'lessismore' => array('auto' => true),
-  'scaffold'
 
 );
