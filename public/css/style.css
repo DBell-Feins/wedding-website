@@ -369,6 +369,17 @@ section .location .about #hotel,
 section .location .about #venue {
   cursor: pointer;
 }
+section .directions p {
+  text-align: left;
+}
+section .directions dl {
+  text-align: left;
+  font-size: 1em;
+  font-weight: 300;
+}
+section .directions dl dd {
+  padding-bottom: 1em;
+}
 .leaflet-control-layers-toggle {
   background-image: url(../img/vendor/layers.png);
 }

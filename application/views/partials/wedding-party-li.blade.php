@@ -5,12 +5,10 @@
         <div class="span8">
             <h3>{{ $person->first_name }} {{ $person->last_name }}</h3>
             <h5>{{ $person->role }}</h5>
-            <p>{{ $person->description  }}</p>
+            {{ $person->description  }}
+            <h3>Fun Fact</h3>
             <blockquote>
-              <p>{{ $person->quote  }}</p>
-              <small>
-                  <cite title="{{ $person->first_name }} {{ $person->last_name }}">{{ $person->first_name }} {{ $person->last_name }}</cite>
-              </small>
+              <p>{{ $person->quote }}</p>
             </blockquote>
         </div>
     </div>

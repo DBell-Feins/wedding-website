@@ -10,8 +10,11 @@ equalHeight = (group) ->
   group.height tallest
 
 root.$(=>
-  if $(window).width() >= 768
+  if $('.location .about').height() >= 200
     equalHeight $('.about')
+
+  if $(window).width() >= 768
+    equalHeight $('.bridegroom .about')
 
   flex =
     slideshow: true,
