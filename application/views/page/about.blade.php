@@ -7,7 +7,7 @@
             <div class="well center story">
                 <p>Liz and Dave have known each other for a <em>really</em> long time.</p>
 
-                <p>They met in a faraway land known as The Berkshires, at "Camp Eisner, a place for Living Judaism" in 1997. That's right. Dave and Liz met a Jewish sleep away camp.</p>
+                <p>They met in a faraway land known as The Berkshires, at "Camp Eisner, a place for Living Judaism" in 1997. That's right. Dave and Liz met at a Jewish sleep away camp.</p>
 
                 <p>Liz caught Dave's attention from the moment he saw her. A pretty, multi-color haired girl, with a great sense of humor and a funky fashion sense. Dave was shy and didn't know how to approach her. Luckily Liz noticed him; a cute, friendly guy with great taste in music who laughed at her jokes!</p>
 
