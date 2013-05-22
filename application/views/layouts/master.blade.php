@@ -9,7 +9,7 @@
         <title>Liz and Dave's Wedding!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
+        <link rel="icon" href="favicon.gif" type="image/x-icon" />
         <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
