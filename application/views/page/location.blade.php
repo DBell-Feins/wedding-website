@@ -70,6 +70,7 @@
                 <h5>By Air:</h5>
                 <p>The closest major airports are <a href="http://www.massport.com/logan-airport/Pages/Default.aspx">Boston Logan International Airport</a> and <a href="http://www.bradleyairport.com/home/">Bradley International Airport</a> in Connecticut. If you're flying, make sure to rent a car with a GPS unit. It will make your life much easier!</p>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 @endsection

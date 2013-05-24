@@ -29,6 +29,8 @@
         </div>
     </div>
     <div class="row-fluid bridegroom">
-        {{ render_each('partials.about-person', $people, 'person') }}
+        @foreach ($people as $person)
+            @include('partials.about-person')
+        @endforeach
     </div>
 @endsection
