@@ -2,9 +2,9 @@
 
 class Adminify_Home_Controller extends Adminify_Base_Controller {
 
-	public function get_index(){
+  public function get_index(){
     $ignore = array('description', 'role', 'slug', 'quote', 'image_url');
-		$models = Adminify\Libraries\Helpers::getModels();
+    $models = Adminify\Libraries\Helpers::getModels();
     $meals = array(
       'chicken' => intval(DB::table('people')->where('meal', '=', 'chicken')->count()),
       'beef' => intval(DB::table('people')->where('meal', '=', 'beef')->count()),
@@ -28,10 +28,12 @@ class Adminify_Home_Controller extends Adminify_Base_Controller {
       );
     }
 
-		$this->layout->title = 'Dashboard';
-		$this->layout->nest('content', 'adminify::dashboard.index', array('models' => $models));
+    $query = DB::table('people')->select(array('first_name', 'last_name', 'attending', 'meal', 'updated_at'))->order_by('updated_at', 'desc')->paginate(20);
+
+    $this->layout->title = 'Dashboard';
+    $this->layout->nest('content', 'adminify::dashboard.index', array('models' => $models, 'table' => $query));
     $this->layout->nest('footer', 'adminify::dashboard.footer', array('rsvp' => json_encode($rsvp), 'meals' => json_encode($meals)));
 
-	}
+  }
 
 }
