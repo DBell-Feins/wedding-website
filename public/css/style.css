@@ -606,6 +606,9 @@ ul.registry li {
     clear: both;
     padding-top: 10px;
   }
+  section .registry {
+    padding: 10px 20px;
+  }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   header {

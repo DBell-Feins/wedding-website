@@ -4,7 +4,7 @@
     @include('partials.header')
     <div class="row-fluid">
         <div class="span12">
-            <div class="well">
+            <div class="well registry">
                 <p>After an exhausting search and a little bit too much fun with hand-held scanners, we've compiled a wedding registry fit for a couple who have way too much old stuff.</p>
                 <p>If you can't figure out what to get (and honestly, there's a lot to pick from) gift cards are a great option and are always appreciated!</p>
                 <p>We're registered at the following stores:</p>
