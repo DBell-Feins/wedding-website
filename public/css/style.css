@@ -562,6 +562,7 @@ ul.registry li {
   .navbar .nav > li {
     float: none;
     display: block;
+    margin-top: 5px;
   }
   .navbar-inner {
     text-align: left;
@@ -588,6 +589,7 @@ ul.registry li {
   .navbar .nav > li {
     float: none;
     display: block;
+    margin-top: 5px;
   }
   .navbar-inner {
     text-align: left;
@@ -618,6 +620,7 @@ ul.registry li {
   .navbar .nav > li {
     float: none;
     display: block;
+    margin-top: 5px;
   }
   .container .nav-collapse .nav > li > a {
     color: #fff;
