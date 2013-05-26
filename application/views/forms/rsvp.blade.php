@@ -11,5 +11,5 @@
 {{ Form::labelled_radio('guest[' . $i . '][meal]', 'Pepper crusted beef tenderloin', 'beef', isset($person['meal']) ? $person['meal']  === 'beef' : '') }}
 {{ Form::labelled_radio('guest[' . $i . '][meal]', 'Butternut squash ravioli', 'veggie', isset($person['meal']) ? $person['meal']  === 'veggie' : '') }}
 
-{{ Form::block_help('Please list any alergies we should be aware of:') }}
-{{ Form::xlarge_textarea('guest[' . $i . '][alergies]', isset($person['alergies']) ? $person['alergies'] : '', array('rows' => '3')) }}
+{{ Form::block_help('Please list any allergies we should be aware of:') }}
+{{ Form::xlarge_textarea('guest[' . $i . '][allergies]', isset($person['allergies']) ? $person['allergies'] : '', array('rows' => '3')) }}

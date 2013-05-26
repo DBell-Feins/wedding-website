@@ -31,7 +31,7 @@ class Create_Base_Schema {
       $table->text('quote')->nullable();
       $table->string('image_url')->nullable();
       $table->string('meal')->nullable();
-      $table->string('alergies')->nullable();
+      $table->string('allergies')->nullable();
       $table->timestamps();
     });
 
