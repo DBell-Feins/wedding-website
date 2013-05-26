@@ -20,7 +20,7 @@ class Adminify_Home_Controller extends Adminify_Base_Controller {
         ->where('updated_at', '<=', date($time->updated_at))
         ->count();
 
-      $count_declined = DB::table('people')->count() - $count_attending;
+      $count_declined = DB::table('people')->where('updated_at', '<=', date($time->updated_at))->count() - $count_attending;
 
       $rsvp[strtotime($time->updated_at)] = array(
         'attending' => intval($count_attending),
