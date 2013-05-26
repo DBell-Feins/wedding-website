@@ -28,7 +28,7 @@ class Adminify_Home_Controller extends Adminify_Base_Controller {
       );
     }
 
-    $query = DB::table('people')->select(array('first_name', 'last_name', 'attending', 'meal', 'alergies', 'updated_at'))->order_by('updated_at', 'desc')->paginate(20);
+    $query = DB::table('people')->select(array('first_name', 'last_name', 'attending', 'meal', 'allergies', 'updated_at'))->order_by('updated_at', 'desc')->paginate(20);
 
     $this->layout->title = 'Dashboard';
     $this->layout->nest('content', 'adminify::dashboard.index', array('models' => $models, 'table' => $query));
