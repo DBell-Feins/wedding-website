@@ -16,7 +16,7 @@
     <td>{{ $row->last_name }}</td>
     <td>{{ ($row->attending == '1') ? 'Yes' : 'No' }}</td>
     <td>{{ ucwords($row->meal) }}</td>
-    <td>{{ $row->alergies }}</td>
+    <td>{{ $row->allergies }}</td>
     <td>{{ date('m/d/Y h:m A T', strtotime($row->updated_at)) }}</td>
   </tr>
 @endforeach
