@@ -19,8 +19,8 @@
 <div class="control-group">
   <label class="control-label">I will be:&nbsp;</label>
     <div class="controls">
-      <label class="radio"><input type="radio" name="guest[{{ $i }}][attending]" value="1" {{ (isset($person['attending']) && $person['attending'] === '1') ? 'checked' : '' }}>Attending</label>
-      <label class="radio"><input type="radio" name="guest[{{ $i }}][attending]" value="0" {{ (isset($person['attending']) && $person['attending'] === '0') ? 'checked' : '' }}>Not attending</label>
+      <label class="radio"><input type="radio" name="guest[{{ $i }}][attending]" value="1" {{ (isset($person['attending']) && $person['attending'] == '1') ? 'checked' : '' }}>Attending</label>
+      <label class="radio"><input type="radio" name="guest[{{ $i }}][attending]" value="0" {{ (isset($person['attending']) && $person['attending'] == '0') ? 'checked' : '' }}>Not attending</label>
   </div>
 </div>
 
