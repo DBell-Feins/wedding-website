@@ -16,7 +16,7 @@ class Adminify_Base_Controller extends Controller {
 		Asset::container('header')->add('style', 'css/style.css');
 
 		Asset::container('footer')->bundle('adminify');
-		Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
+		Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-1.9.1.min.js');
 		Asset::container('footer')->add('bootstrapjs', 'js/bootstrap.min.js');
 		Asset::container('footer')->add('highcharts', 'js/highcharts.min.js', array('jquery'));
 		Asset::container('footer')->add('moment', 'js/moment.min.js');

@@ -8,7 +8,7 @@
 
 <div id="rsvp-time" style="width:100%; height:400px;"></div>
 {{ Table::striped_bordered_hover_condensed_open() }}
-{{ Table::headers('First Name', 'Last Name', 'Attending', 'Meal', 'Allergies', 'Updated At') }}
+{{ Table::headers('First Name', 'Last Name', 'Attending', 'Meal', 'Allergies', 'Updated At', 'Created At') }}
 <tbody>
 @foreach($table->results as $row)
   <tr>
@@ -18,6 +18,7 @@
     <td>{{ ucwords($row->meal) }}</td>
     <td>{{ $row->allergies }}</td>
     <td>{{ date('m/d/Y h:m A T', strtotime($row->updated_at)) }}</td>
+    <td>{{ date('m/d/Y h:m A T', strtotime($row->created_at)) }}</td>
   </tr>
 @endforeach
 </tbody>

@@ -18,9 +18,13 @@ class Adminify_Home_Controller extends Adminify_Base_Controller {
       $count_attending = DB::table('people')
         ->where('attending', '=', '1')
         ->where('updated_at', '<=', date($time->updated_at))
+        ->where('created_at', '<=', date($time->updated_at))
         ->count();
 
-      $count_declined = DB::table('people')->where('updated_at', '<=', date($time->updated_at))->count() - $count_attending;
+      $count_declined = DB::table('people')
+        ->where('updated_at', '<=', date($time->updated_at))
+        ->where('created_at', '<=', date($time->updated_at))
+        ->count() - $count_attending;
 
       $rsvp[strtotime($time->updated_at)] = array(
         'attending' => intval($count_attending),
@@ -28,7 +32,7 @@ class Adminify_Home_Controller extends Adminify_Base_Controller {
       );
     }
 
-    $query = DB::table('people')->select(array('first_name', 'last_name', 'attending', 'meal', 'allergies', 'updated_at'))->order_by('updated_at', 'desc')->paginate(20);
+    $query = DB::table('people')->select(array('first_name', 'last_name', 'attending', 'meal', 'allergies', 'updated_at', 'created_at'))->order_by('updated_at', 'desc')->paginate(20);
 
     $this->layout->title = 'Dashboard';
     $this->layout->nest('content', 'adminify::dashboard.index', array('models' => $models, 'table' => $query));
