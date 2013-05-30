@@ -17,8 +17,8 @@
     <td>{{ ($row->attending == '1') ? 'Yes' : 'No' }}</td>
     <td>{{ ucwords($row->meal) }}</td>
     <td>{{ $row->allergies }}</td>
-    <td>{{ date('m/d/Y h:m A T', strtotime($row->updated_at)) }}</td>
-    <td>{{ date('m/d/Y h:m A T', strtotime($row->created_at)) }}</td>
+    <td>{{ date('m/d/Y h:i:s A', strtotime($row->updated_at)) }}</td>
+    <td>{{ date('m/d/Y h:i:s A', strtotime($row->created_at)) }}</td>
   </tr>
 @endforeach
 </tbody>
