@@ -220,7 +220,6 @@ class Page_Controller extends Base_Controller {
       if(count($query) > 0)
       {
         unset($guest['id']);
-        $guest['attending'] = isset($guest['attending']) ? "1" : null;
         /**
          * Test if there are any actual updated values. If not, we don't want
          * to update the record so we can look at attending vs. declined trends

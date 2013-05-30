@@ -6,7 +6,7 @@
         <div class="span12">
             <div class="well">
                 <h3>Please fill out this form for each guest in your party</h3>
-                {{ Form::vertical_open(null, 'POST', array('class' => 'rsvp')) }}
+                {{ Form::horizontal_open(null, 'POST', array('class' => 'rsvp')) }}
                 {{ Form::token() }}
                 @foreach($people as $i => $person)
                   @include('forms.rsvp')
