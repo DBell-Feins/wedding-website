@@ -35,3 +35,14 @@ dwsync.xml
 intermediate
 publish
 .idea
+
+# Files on Dreamhost server
+.alias
+.bash_history
+.bash_profile
+.bashrc
+.cshrc
+.gitconfig
+.php/*
+.ssh/*
+logs/*
