@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'index' => '',
+	'index' => 'index.php',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return array(
 	|
 	*/
 
-	'key' => '37Z73XiQrpRPlIoRU5w12O95Dp3hTS5H',
+	'key' => 'YourSecretKeyGoesHere!',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'America/New_York',
+	'timezone' => 'UTC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -159,7 +159,7 @@ return array(
 		'Blade'      	=> 'Laravel\\Blade',
 		'Bundle'     	=> 'Laravel\\Bundle',
 		'Cache'      	=> 'Laravel\\Cache',
-        'Command'       => 'Laravel\\CLI\\Command',
+		'Command'    	=> 'Laravel\\CLI\\Command',
 		'Config'     	=> 'Laravel\\Config',
 		'Controller' 	=> 'Laravel\\Routing\\Controller',
 		'Cookie'     	=> 'Laravel\\Cookie',
@@ -194,30 +194,6 @@ return array(
 		'URI'        	=> 'Laravel\\URI',
 		'Validator'  	=> 'Laravel\\Validator',
 		'View'       	=> 'Laravel\\View',
-        /* Bootstrapper aliases */
-        'Alert'          => 'Bootstrapper\\Alert',
-        'Badge'          => 'Bootstrapper\\Badge',
-        'Breadcrumb'     => 'Bootstrapper\\Breadcrumb',
-        'Button'         => 'Bootstrapper\\Button',
-        'ButtonGroup'    => 'Bootstrapper\\ButtonGroup',
-        'ButtonToolbar'  => 'Bootstrapper\\ButtonToolbar',
-        'Carousel'       => 'Bootstrapper\\Carousel',
-        'DropdownButton' => 'Bootstrapper\\DropdownButton',
-        'Form'           => 'Bootstrapper\\Form',
-        'Helpers'        => 'Bootstrapper\\Helpers',
-        'Icon'           => 'Bootstrapper\\Icon',
-        'Image'          => 'Bootstrapper\\Image',
-        'Label'          => 'Bootstrapper\\Label',
-        'MediaObject'    => 'Bootstrapper\\MediaObject',
-        'Navbar'         => 'Bootstrapper\\Navbar',
-        'Navigation'     => 'Bootstrapper\\Navigation',
-        'Paginator'      => 'Bootstrapper\\Paginator',
-        'Progress'       => 'Bootstrapper\\Progress',
-        'Tabbable'       => 'Bootstrapper\\Tabbable',
-        'Table'          => 'Bootstrapper\\Table',
-        'Thumbnail'      => 'Bootstrapper\\Thumbnail',
-        'Typeahead'      => 'Bootstrapper\\Typeahead',
-        'Typography'     => 'Bootstrapper\\Typography',
 	),
 
 );
