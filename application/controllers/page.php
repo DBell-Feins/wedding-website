@@ -242,7 +242,6 @@ class Page_Controller extends Base_Controller {
       {
         // New
         $guest['role'] = 'Guest';
-        $guest['attending'] = isset($guest['attending']) ? true : null;
         // Create
         $invitation->people()->insert($guest);
       }
