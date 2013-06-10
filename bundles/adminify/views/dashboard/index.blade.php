@@ -17,7 +17,7 @@
       <tr>
         <td>{{ $row->first_name }}</td>
         <td>{{ $row->last_name }}</td>
-        <td>{{ (intval($row->attending) === 1) ? 'Yes' : ((intval($row->attending) === 0) ? 'No' : '') }}</td>
+        <td>{{ (intval($row->attending) === 1) ? 'Yes' : ((is_null($row->attending) === true) ? '' : 'No') }}</td>
         <td>{{ ucwords($row->meal) }}</td>
         <td>{{ $row->allergies }}</td>
         <td>{{ date('m/d/Y h:i:s A', strtotime($row->updated_at)) }}</td>
